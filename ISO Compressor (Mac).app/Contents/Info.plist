@@ -23,6 +23,8 @@
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>droplet</string>
+	<key>CFBundleGetInfoString</key>
+	<string>1.0.0, Copyright 2026</string>
 	<key>CFBundleIconFile</key>
 	<string>droplet</string>
 	<key>CFBundleIconName</key>
@@ -33,6 +35,8 @@
 	<string>ISO Compressor (Mac)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
 	<key>CFBundleSignature</key>
 	<string>dplt</string>
 	<key>LSMinimumSystemVersionByArchitecture</key>
