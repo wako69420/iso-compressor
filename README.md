@@ -1,6 +1,8 @@
 <div align="center">
   <img src="logo.jpg" alt="Logo" width="200"/>
   <h1>PSP ISO Compressor (ZSO & CSO)</h1>
+
+  This is made for personal use and this repo is used as an archive.
   <p><i>A simple, drag-and-drop utility for Mac and Windows that compresses massive PSP <code>.ISO</code> backups into highly optimized <code>.ZSO</code> or <code>.CSO</code> files.</i></p>
 </div>
 
