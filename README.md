@@ -60,5 +60,7 @@ psp-compressor --format=zso "/path/to/your/game.iso"
 
 ## License & Open Source
 This project is licensed under the [MIT License](LICENSE). 
-* **maxcso Engine:** All core compression credit goes to [unknownbrackets](https://github.com/unknownbrackets/maxcso) for creating the blazing fast C++ compression engine used under the hood of this tool.
-* **ARK-5 Custom Firmware:** Massive thanks to the [ARK-5 Team](https://github.com/PSP-Archive/ARK-4) (Acid_Snake, KrazyS, and contributors) for modernizing the PSP scene and building native ZSO (Inferno V2) support directly into the firmware, which makes this entire project possible!
+
+Credits:
+* **maxcso Engine:** All core compression credit goes to [unknownbrackets](https://github.com/unknownbrackets/maxcso)
+* **ARK-5 Custom Firmware:** [ARK-5 Team](https://github.com/PSP-Archive/ARK-4) for modernizing and building native ZSO (Inferno V2) support directly into the firmware.
