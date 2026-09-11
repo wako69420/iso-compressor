@@ -1,12 +1,11 @@
 @echo off
-title PSP ISO/CSO Compressor - by maxcso
+title PSP Game Compressor (ZSO ^& CSO)
 color 0B
 setlocal EnableDelayedExpansion
 
-:: Check if files were dropped onto the script
 if "%~1"=="" (
     echo =======================================================
-    echo           PSP ISO COMPRESSOR (ZSO ^& CSO)
+    echo           PSP GAME COMPRESSOR (ZSO ^& CSO)
     echo =======================================================
     echo.
     echo  ERROR: You opened the script directly!
@@ -24,23 +23,27 @@ if "%~1"=="" (
 :menu
 cls
 echo =======================================================
-echo           PSP ISO COMPRESSOR (ZSO ^& CSO)
+echo           PSP GAME COMPRESSOR (ZSO ^& CSO)
 echo =======================================================
 echo.
-echo Please choose your target console/emulator:
+echo NOTE: 
+echo - CSO format is for PPSSPP Emulators on PC/Mac/Phone.
+echo - ZSO format is for ACTUAL PSP Hardware running ARK-5.
 echo.
-echo  [1] ZSO Format (For REAL Physical PSP Hardware with CFW)
-echo      - Uses ultra-fast LZ4 compression to stop lag spikes.
+echo Please choose your conversion target:
 echo.
-echo  [2] CSO Format (For PPSSPP Emulators on PC/Mac/Phone)
-echo      - The classic format. PPSSPP does not support ZSO yet.
+echo  [1] ISO to CSO (For PPSSPP)
+echo  [2] CSO to ZSO (For Real PSP)
+echo  [3] ISO to ZSO (For Real PSP)
 echo.
-set /p choice="Type 1 or 2 and press Enter: "
+set /p choice="Type 1, 2, or 3 and press Enter: "
 
 if "%choice%"=="1" (
-    set format=zso
-) else if "%choice%"=="2" (
     set format=cso
+) else if "%choice%"=="2" (
+    set format=zso
+) else if "%choice%"=="3" (
+    set format=zso
 ) else (
     goto menu
 )
@@ -51,7 +54,6 @@ echo               COMPRESSION IN PROGRESS
 echo =======================================================
 echo.
 
-:: Loop through all dragged files
 :loop
 if "%~1"=="" goto end
 echo Processing: "%~nx1"
@@ -64,9 +66,4 @@ goto loop
 echo =======================================================
 echo                   ALL DONE!
 echo =======================================================
-echo.
-echo Your compressed games have been placed in the exact same 
-echo folder as your original games. 
-echo.
-echo You can now close this window.
 pause
