@@ -24,17 +24,37 @@ The `.ZSO` format fixes this by using ultra-fast **LZ4 compression**. It shrinks
 
 ---
 
-## How to use (Mac)
+## How to use (Mac GUI)
 1. Download the latest Mac Release from the Releases tab.
 2. Open **`ISO Compressor (Mac).app`** by double-clicking it, or simply **drag-and-drop** your `.ISO`/`.CSO` files directly onto the app icon.
 3. A prompt will clearly ask you to choose between CSO (For PPSSPP) or ZSO (For Real Hardware).
-4. The app will compress the file in the background and place the new game in the exact same folder as your original game.
 
-## How to use (Windows)
+## How to use (Windows GUI)
 1. Download the latest Windows Release from the Releases tab and extract the folder.
 2. **Drag and drop** your `.ISO`/`.CSO` files directly onto the `Drag and Drop Games Here.bat` script file.
 3. A command window will prompt you to select your conversion path (Type `1` or `2`).
-4. The script will shrink the games and place the new files right next to your originals.
+
+---
+
+## Terminal / CLI Installation
+If you prefer to use the command line instead of the drag-and-drop GUIs, you can install the raw compression engine directly to your system path.
+
+**macOS Installation:**
+Open your Terminal and run the following command:
+```bash
+curl -sL https://raw.githubusercontent.com/wako69420/psp-iso-compressor/master/CLI/install_mac.sh | bash
+```
+
+**Windows Installation:**
+Open PowerShell as Administrator and run the following command:
+```powershell
+irm https://raw.githubusercontent.com/wako69420/psp-iso-compressor/master/CLI/install_win.ps1 | iex
+```
+
+Once installed on either OS, you can compress files instantly from any terminal window using:
+```bash
+psp-compressor --format=zso "/path/to/your/game.iso"
+```
 
 ---
 
