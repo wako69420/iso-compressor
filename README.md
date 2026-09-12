@@ -1,5 +1,4 @@
-<div align="center">
-  <img src="logo.jpg" alt="Logo" width="200"/>
+
   <h1>PSP ISO Compressor (ZSO & CSO)</h1>
   <p><i>A simple, drag-and-drop utility for Mac (with full interactive TUI support for Windows & Mac) that compresses massive PSP <code>.ISO</code> backups into highly optimized <code>.ZSO</code> or <code>.CSO</code> files.</i></p>
 </div>
