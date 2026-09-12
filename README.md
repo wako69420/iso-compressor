@@ -1,6 +1,7 @@
-
+<div align="center">
+  <img src="logo.jpg" alt="Logo" width="200"/>
   <h1>PSP ISO Compressor (ZSO & CSO)</h1>
-  <p><i>A simple, drag-and-drop utility for Mac (with full CLI support for Windows & Mac) that compresses massive PSP <code>.ISO</code> backups into highly optimized <code>.ZSO</code> or <code>.CSO</code> files.</i></p>
+  <p><i>A simple, drag-and-drop utility for Mac (with full interactive TUI support for Windows & Mac) that compresses massive PSP <code>.ISO</code> backups into highly optimized <code>.ZSO</code> or <code>.CSO</code> files.</i></p>
 </div>
 
 ---
@@ -30,8 +31,8 @@ The `.ZSO` format fixes this by using ultra-fast **LZ4 compression**. It shrinks
 
 ---
 
-## Terminal / CLI Installation
-If you prefer to use the command line instead of the drag-and-drop GUI, or if you are on Windows, you can install the raw compression engine directly to your system path.
+## Terminal / CLI Installation (Interactive TUI)
+If you prefer to use the command line, or if you are on Windows, you can install the interactive Terminal User Interface (TUI) directly to your system path.
 
 **macOS Installation:**
 Open your Terminal and run the following command:
@@ -40,14 +41,14 @@ curl -sL https://raw.githubusercontent.com/wako69420/psp-iso-compressor/master/C
 ```
 
 **Windows Installation:**
-Open PowerShell as Administrator and run the following command:
+Open PowerShell and run the following command:
 ```powershell
 irm https://raw.githubusercontent.com/wako69420/psp-iso-compressor/master/CLI/install_win.ps1 | iex
 ```
 
-Once installed on either OS, you can compress files instantly from any terminal window using:
+Once installed on either OS, simply type the following command into any terminal to launch the interactive, colorful Drag-and-Drop menu:
 ```bash
-psp-compressor --format=zso "/path/to/your/game.iso"
+psp-compressor
 ```
 
 ---
