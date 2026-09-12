@@ -1,5 +1,4 @@
-<div align="center">
-  <img src="logo.jpg" alt="Logo" width="200"/>
+
   <h1>PSP ISO Compressor (ZSO & CSO)</h1>
 
   This is made for personal use and this repo is used as an archive.
