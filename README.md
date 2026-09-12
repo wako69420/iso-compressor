@@ -45,7 +45,7 @@ Open PowerShell and run the following command:
 irm https://raw.githubusercontent.com/wako69420/psp-iso-compressor/master/CLI/install_win.ps1 | iex
 ```
 
-Once installed on either OS, simply type the following command into any terminal to launch the interactive, colorful Drag-and-Drop menu:
+Once installed on either OS, simply type the following command into any terminal to launch the Drag-and-Drop menu:
 ```bash
 psp-compressor
 ```
@@ -54,5 +54,5 @@ psp-compressor
 
 ## License & Open Source
 This project is licensed under the [MIT License](LICENSE). 
-* **maxcso Engine:** All core compression credit goes to [unknownbrackets](https://github.com/unknownbrackets/maxcso) for creating the blazing fast C++ compression engine used under the hood of this tool.
-* **ARK-5 Custom Firmware:** Massive thanks to the [ARK-5 Team](https://github.com/PSP-Archive/ARK-4) (Acid_Snake, KrazyS, and contributors) for modernizing the PSP scene and building native ZSO (Inferno V2) support directly into the firmware, which makes this entire project possible!
+* **maxcso Engine:** All core compression credit goes to [unknownbrackets](https://github.com/unknownbrackets/maxcso) 
+* **ARK-5 Custom Firmware:** [ARK-5 Team](https://github.com/PSP-Archive/ARK-4) (Acid_Snake, KrazyS, and contributors) for building the native ZSO (Inferno V2) support directly into the firmware.
