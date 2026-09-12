@@ -1,8 +1,6 @@
 
   <h1>PSP ISO Compressor (ZSO & CSO)</h1>
-
-  This is made for personal use and this repo is used as an archive.
-  <p><i>A simple, drag-and-drop utility for Mac and Windows that compresses massive PSP <code>.ISO</code> backups into highly optimized <code>.ZSO</code> or <code>.CSO</code> files.</i></p>
+  <p><i>A simple, drag-and-drop utility for Mac (with full CLI support for Windows & Mac) that compresses massive PSP <code>.ISO</code> backups into highly optimized <code>.ZSO</code> or <code>.CSO</code> files.</i></p>
 </div>
 
 ---
@@ -30,15 +28,10 @@ The `.ZSO` format fixes this by using ultra-fast **LZ4 compression**. It shrinks
 2. Open **`ISO Compressor (Mac).app`** by double-clicking it, or simply **drag-and-drop** your `.ISO`/`.CSO` files directly onto the app icon.
 3. A prompt will clearly ask you to choose between CSO (For PPSSPP) or ZSO (For Real Hardware).
 
-## How to use (Windows GUI)
-1. Download the latest Windows Release from the Releases tab and extract the folder.
-2. **Drag and drop** your `.ISO`/`.CSO` files directly onto the `Drag and Drop Games Here.bat` script file.
-3. A command window will prompt you to select your conversion path (Type `1` or `2`).
-
 ---
 
 ## Terminal / CLI Installation
-If you prefer to use the command line instead of the drag-and-drop GUIs, you can install the raw compression engine directly to your system path.
+If you prefer to use the command line instead of the drag-and-drop GUI, or if you are on Windows, you can install the raw compression engine directly to your system path.
 
 **macOS Installation:**
 Open your Terminal and run the following command:
@@ -61,7 +54,5 @@ psp-compressor --format=zso "/path/to/your/game.iso"
 
 ## License & Open Source
 This project is licensed under the [MIT License](LICENSE). 
-
-Credits:
-* **maxcso Engine:** All core compression credit goes to [unknownbrackets](https://github.com/unknownbrackets/maxcso)
-* **ARK-5 Custom Firmware:** [ARK-5 Team](https://github.com/PSP-Archive/ARK-4) for modernizing and building native ZSO (Inferno V2) support directly into the firmware.
+* **maxcso Engine:** All core compression credit goes to [unknownbrackets](https://github.com/unknownbrackets/maxcso) for creating the blazing fast C++ compression engine used under the hood of this tool.
+* **ARK-5 Custom Firmware:** Massive thanks to the [ARK-5 Team](https://github.com/PSP-Archive/ARK-4) (Acid_Snake, KrazyS, and contributors) for modernizing the PSP scene and building native ZSO (Inferno V2) support directly into the firmware, which makes this entire project possible!
