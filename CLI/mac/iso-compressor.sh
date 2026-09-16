@@ -1,6 +1,6 @@
 #!/bin/bash
 # PS1, PS2 & PSP ISO Compressor TUI
-ENGINE_PATH="$HOME/.psp-compressor/maxcso"
+ENGINE_PATH="$HOME/.iso-compressor/maxcso"
 
 if [ ! -f "$ENGINE_PATH" ]; then
     echo "Error: maxcso engine not found at $ENGINE_PATH"
@@ -62,7 +62,7 @@ while true; do
             echo "                 AUTO-UPDATING TOOL"
             echo "======================================================="
             echo "Fetching latest version from GitHub..."
-            curl -sL https://raw.githubusercontent.com/wako69420/psp-iso-compressor/master/CLI/install_mac.sh | bash
+            curl -sL https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_mac.sh | bash
             exit 0
             ;;
         7)
@@ -71,7 +71,7 @@ while true; do
             echo "                ABOUT & LICENSE"
             echo "======================================================="
             echo "ISO/CSO Compressor v1.0"
-            echo "GitHub: https://github.com/wako69420/psp-iso-compressor"
+            echo "GitHub: https://github.com/wako69420/iso-compressor"
             echo "License: MIT License"
             echo "Credits:"
             echo "- maxcso engine by unknownbrackets"

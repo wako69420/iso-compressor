@@ -3,7 +3,7 @@ title PS1, PS2 ^& PSP Game Compressor (ZSO ^& CSO)
 color 0B
 setlocal EnableDelayedExpansion
 
-set ENGINE_PATH=%LOCALAPPDATA%\psp-compressor\maxcso.exe
+set ENGINE_PATH=%LOCALAPPDATA%\iso-compressor\maxcso.exe
 
 if not exist "%ENGINE_PATH%" (
     echo Error: maxcso.exe engine not found at %ENGINE_PATH%
@@ -104,7 +104,7 @@ echo =======================================================
 echo                 AUTO-UPDATING TOOL
 echo =======================================================
 echo Fetching latest version from GitHub...
-powershell -Command "irm https://raw.githubusercontent.com/wako69420/psp-iso-compressor/master/CLI/install_win.ps1 | iex"
+powershell -Command "irm https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_win.ps1 | iex"
 exit /b
 
 :about
@@ -117,7 +117,7 @@ echo ISO/CSO Compressor v1.0
 echo A free, open-source tool for compressing massive PSP & PS2 games.
 echo.
 echo GitHub Repository: 
-echo https://github.com/wako69420/psp-iso-compressor
+echo https://github.com/wako69420/iso-compressor
 echo.
 echo License: MIT License
 echo.
