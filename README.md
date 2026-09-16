@@ -8,7 +8,7 @@
 ## Features & Formats
 
 This tool explicitly provides conversion paths tailored for your specific gaming setup:
-- **ISO ➔ CHD** (Requires `chdman` installed)
+- **ISO ➔ CHD**
 - **ISO ➔ CSO**
 - **CSO ➔ ZSO**
 - **ISO ➔ ZSO**
