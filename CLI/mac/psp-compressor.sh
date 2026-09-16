@@ -25,10 +25,12 @@ show_menu() {
  [2] ISO to CSO (For PSP Emulators)"
     echo " [3] CSO to ZSO (For Real Hardware)"
     echo " [4] ISO to ZSO (For Real Hardware)"
-    echo " [5] About / License"
-    echo " [6] Exit"
+    echo " [5] Install CHDMAN (For CHD Support)
+ [6] Auto-Update CLI Tool
+ [7] About / License"
+    echo " [8] Exit"
     echo ""
-    read -p "Type 1, 2, 3, 4, 5, or 6 and press Enter: " choice
+    read -p "Type 1, 2, 3, 4, 5, 6, 7, or 8 and press Enter: " choice
 }
 
 while true; do
@@ -38,6 +40,32 @@ while true; do
         2) format="cso"; break;;
         3|4) format="zso"; break;;
         5)
+            clear
+            echo "======================================================="
+            echo "                   INSTALL CHDMAN"
+            echo "======================================================="
+            echo "CHD is the ultimate lossless compression format for PS1 and PS2 Emulators."
+            echo "To create CHD files, this app needs a free tool called 'chdman'."
+            echo ""
+            echo "Installing via Homebrew..."
+            if ! command -v brew >/dev/null 2>&1; then
+                echo "Error: Homebrew is not installed! Please install it first (brew.sh)"
+            else
+                brew install rom-tools
+                echo "Done!"
+            fi
+            read -p "Press Enter to return..."
+            ;;
+        6)
+            clear
+            echo "======================================================="
+            echo "                 AUTO-UPDATING TOOL"
+            echo "======================================================="
+            echo "Fetching latest version from GitHub..."
+            curl -sL https://raw.githubusercontent.com/wako69420/psp-iso-compressor/master/CLI/install_mac.sh | bash
+            exit 0
+            ;;
+        7)
             clear
             echo "======================================================="
             echo "                ABOUT & LICENSE"
@@ -51,7 +79,7 @@ while true; do
             echo "======================================================="
             read -p "Press Enter to return..."
             ;;
-        6) exit 0;;
+        8) exit 0;;
         *) echo "Invalid option"; sleep 1;;
     esac
 done

@@ -29,22 +29,24 @@ echo  [1] ISO to CHD (For PS1/PS2 Emulators)
  [2] ISO to CSO (For PSP Emulators)
 echo  [3] CSO to ZSO (For Real Hardware)
 echo  [4] ISO to ZSO (For Real Hardware)
-echo  [5] About / License
-echo  [6] Exit
+echo  [5] Install CHDMAN (For CHD Support)
+ [6] Auto-Update CLI Tool
+ [7] About / License
+echo  [8] Exit
 echo.
-set /p choice="Type 1, 2, 3, 4, 5, or 6 and press Enter: "
+set /p choice="Type 1, 2, 3, 4, 5, 6, 7, or 8 and press Enter: "
 
 if "%choice%"=="1" (
     set format=chd
-) else if "%choice%"=="6" (
+) else if "%choice%"=="8" (
     set format=cso
-) else if "%choice%"=="6" (
+) else if "%choice%"=="8" (
     set format=zso
-) else if "%choice%"=="6" (
+) else if "%choice%"=="8" (
     set format=zso
-) else if "%choice%"=="6" (
+) else if "%choice%"=="8" (
     goto about
-) else if "%choice%"=="6" (
+) else if "%choice%"=="8" (
     exit
 ) else (
     goto menu
@@ -77,6 +79,32 @@ echo =======================================================
 echo                   ALL DONE!
 echo =======================================================
 pause
+exit /b
+
+
+:install_chdman
+cls
+echo =======================================================
+echo                   INSTALL CHDMAN
+echo =======================================================
+echo.
+echo CHD is the ultimate lossless compression format for PS1 and PS2 Emulators.
+echo To create CHD files, this app needs a free tool called 'chdman'.
+echo.
+echo Attempting to install via winget (MAME package)...
+winget install -e --id mamedev.MAME
+echo.
+echo Note: If winget fails, please download MAME manually from mamedev.org and add it to your PATH.
+pause
+goto menu
+
+:auto_update
+cls
+echo =======================================================
+echo                 AUTO-UPDATING TOOL
+echo =======================================================
+echo Fetching latest version from GitHub...
+powershell -Command "irm https://raw.githubusercontent.com/wako69420/psp-iso-compressor/master/CLI/install_win.ps1 | iex"
 exit /b
 
 :about
