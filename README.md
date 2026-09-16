@@ -62,8 +62,10 @@ psp-compressor
 
 ## License & Open Source
 This project is licensed under the [MIT License](LICENSE). 
-* **maxcso Engine:** All core compression credit goes to [unknownbrackets](https://github.com/unknownbrackets/maxcso)
-* **ARK-5 Custom Firmware:** [ARK-5 Team](https://github.com/PSP-Archive/ARK-4) (Acid_Snake, KrazyS, and contributors) for building the native ZSO (Inferno V2) support directly into the firmware.
+* **maxcso Engine:** All core compression credit goes to [unknownbrackets](https://github.com/unknownbrackets/maxcso) for the blazing fast CSO/ZSO engine.
+* **MAME Team (chdman):** Massive thanks to the [MAME Development Team](https://www.mamedev.org/) (and Aaron Giles) for developing the CHD format and the `chdman` tool, which is the undisputed gold standard for CD/DVD preservation.
+* **ARK-5 Custom Firmware:** [ARK-5 Team](https://github.com/PSP-Archive/ARK-4) (Acid_Snake, KrazyS, and contributors) for modernizing the PSP scene and building native ZSO (Inferno V2) support directly into the firmware.
+* **OPL (Open PS2 Loader):** The [OPL Development Team](https://github.com/ps2homebrew/Open-PS2-Loader) for actively maintaining the PS2 scene and bringing native ZSO compression support to real PS2 hardware.
 
 ---
 
