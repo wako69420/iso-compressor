@@ -28,13 +28,6 @@ The `.ZSO` format fixes this by using ultra-fast **LZ4 compression**. It shrinks
 
 ---
 
-## How to use (Mac GUI)
-1. Download the latest Mac Release from the Releases tab.
-2. Open **`ISO Compressor (Mac).app`** by double-clicking it, or simply **drag-and-drop** your `.ISO`/`.CSO` files directly onto the app icon.
-3. A prompt will clearly ask you to choose between CHD (For PS1/PS2 Emulators), CSO (For PSP Emulators), or ZSO (For Real Hardware).
-
----
-
 ## Terminal / CLI Installation (Interactive TUI)
 If you prefer to use the command line, or if you are on Windows, you can install the interactive Terminal User Interface (TUI) directly to your system path.
 
@@ -54,6 +47,13 @@ Once installed on either OS, simply type the following command into any terminal
 ```bash
 iso-compressor
 ```
+
+---
+
+## How to use (Mac GUI)
+1. Download the latest Mac Release from the Releases tab.
+2. Open **`ISO Compressor (Mac).app`** by double-clicking it, or simply **drag-and-drop** your `.ISO`/`.CSO` files directly onto the app icon.
+3. A prompt will clearly ask you to choose between CHD (For PS1/PS2 Emulators), CSO (For PSP Emulators), or ZSO (For Real Hardware).
 
 ---
 
