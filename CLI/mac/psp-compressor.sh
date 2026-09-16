@@ -1,5 +1,5 @@
 #!/bin/bash
-# PSP ISO Compressor TUI
+# PSP & PS2 ISO Compressor TUI
 ENGINE_PATH="$HOME/.psp-compressor/maxcso"
 
 if [ ! -f "$ENGINE_PATH" ]; then
@@ -11,18 +11,18 @@ fi
 show_menu() {
     clear
     echo "======================================================="
-    echo "          PSP GAME COMPRESSOR (ZSO & CSO)"
+    echo "          PSP & PS2 GAME COMPRESSOR (ZSO & CSO)"
     echo "======================================================="
     echo ""
     echo "NOTE:"
-    echo "- CSO format is for PPSSPP Emulators on PC/Mac/Phone."
-    echo "- ZSO format is for ACTUAL PSP Hardware running ARK-5."
+    echo "- CSO format is for Emulators (PPSSPP & PCSX2) on PC/Mac/Phone."
+    echo "- ZSO format is for ACTUAL PSP (ARK-5) & PS2 (OPL) Hardware."
     echo ""
     echo "Please choose an option:"
     echo ""
-    echo " [1] ISO to CSO (For PPSSPP)"
-    echo " [2] CSO to ZSO (For Real PSP)"
-    echo " [3] ISO to ZSO (For Real PSP)"
+    echo " [1] ISO to CSO (For Emulators)"
+    echo " [2] CSO to ZSO (For Real Hardware)"
+    echo " [3] ISO to ZSO (For Real Hardware)"
     echo " [4] About / License"
     echo " [5] Exit"
     echo ""

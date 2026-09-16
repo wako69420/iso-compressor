@@ -1,5 +1,5 @@
 Write-Host "======================================" -ForegroundColor Cyan
-Write-Host "Installing PSP ISO Compressor (Win TUI)" -ForegroundColor Cyan
+Write-Host "Installing PSP & PS2 ISO Compressor (Win TUI)" -ForegroundColor Cyan
 Write-Host "======================================" -ForegroundColor Cyan
 
 $installDir = "$env:LOCALAPPDATA\psp-compressor"

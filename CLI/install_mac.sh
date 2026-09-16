@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "======================================"
-echo "Installing PSP ISO Compressor (Mac TUI)"
+echo "Installing PSP & PS2 ISO Compressor (Mac TUI)"
 echo "======================================"
 echo "Downloading core engine..."
 mkdir -p "$HOME/.psp-compressor"

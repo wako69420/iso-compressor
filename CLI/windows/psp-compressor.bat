@@ -1,5 +1,5 @@
 @echo off
-title PSP Game Compressor (ZSO ^& CSO)
+title PSP & PS2 Game Compressor (ZSO ^& CSO)
 color 0B
 setlocal EnableDelayedExpansion
 
@@ -15,18 +15,18 @@ if not exist "%ENGINE_PATH%" (
 :menu
 cls
 echo =======================================================
-echo           PSP GAME COMPRESSOR (ZSO ^& CSO)
+echo           PSP & PS2 GAME COMPRESSOR (ZSO ^& CSO)
 echo =======================================================
 echo.
 echo NOTE: 
-echo - CSO format is for PPSSPP Emulators on PC/Mac/Phone.
-echo - ZSO format is for ACTUAL PSP Hardware running ARK-5.
+echo - CSO format is for Emulators (PPSSPP & PCSX2) on PC/Mac/Phone.
+echo - ZSO format is for ACTUAL PSP (ARK-5) & PS2 (OPL) Hardware.
 echo.
 echo Please choose an option:
 echo.
-echo  [1] ISO to CSO (For PPSSPP)
-echo  [2] CSO to ZSO (For Real PSP)
-echo  [3] ISO to ZSO (For Real PSP)
+echo  [1] ISO to CSO (For Emulators)
+echo  [2] CSO to ZSO (For Real Hardware)
+echo  [3] ISO to ZSO (For Real Hardware)
 echo  [4] About / License
 echo  [5] Exit
 echo.
@@ -70,7 +70,7 @@ echo                 ABOUT ^& LICENSE
 echo =======================================================
 echo.
 echo ISO/CSO Compressor v1.0
-echo A free, open-source tool for compressing massive PSP games.
+echo A free, open-source tool for compressing massive PSP & PS2 games.
 echo.
 echo GitHub Repository: 
 echo https://github.com/wako69420/psp-iso-compressor
