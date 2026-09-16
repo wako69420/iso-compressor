@@ -2,6 +2,7 @@
   <h1>PSP ISO Compressor (ZSO & CSO)</h1>
   Personal use project.
   <p><i>A simple, drag-and-drop utility for Mac (with full interactive TUI support for Windows & Mac) that compresses massive PSP <code>.ISO</code> backups into highly optimized <code>.ZSO</code> or <code>.CSO</code> files.</i></p>
+  Saves space on your PSP and emulators that can be used for additional titles; does not hinder functionality of the title, PSP and emulators read compressed files without any issues. 
 </div>
 
 ---
