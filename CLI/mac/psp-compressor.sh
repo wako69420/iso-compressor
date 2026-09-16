@@ -1,5 +1,5 @@
 #!/bin/bash
-# PSP & PS2 ISO Compressor TUI
+# PS1, PS2 & PSP ISO Compressor TUI
 ENGINE_PATH="$HOME/.psp-compressor/maxcso"
 
 if [ ! -f "$ENGINE_PATH" ]; then
@@ -11,30 +11,33 @@ fi
 show_menu() {
     clear
     echo "======================================================="
-    echo "          PSP & PS2 GAME COMPRESSOR (ZSO & CSO)"
+    echo "          PS1, PS2 & PSP GAME COMPRESSOR (CHD, ZSO, CSO)"
     echo "======================================================="
     echo ""
-    echo "NOTE:"
+    echo "NOTE:
+- CHD format is the ultimate standard for PS1 & PS2 Emulators (Requires chdman)."
     echo "- CSO format is for Emulators (PPSSPP & PCSX2) on PC/Mac/Phone."
     echo "- ZSO format is for ACTUAL PSP (ARK-5) & PS2 (OPL) Hardware."
     echo ""
     echo "Please choose an option:"
     echo ""
-    echo " [1] ISO to CSO (For Emulators)"
-    echo " [2] CSO to ZSO (For Real Hardware)"
-    echo " [3] ISO to ZSO (For Real Hardware)"
-    echo " [4] About / License"
-    echo " [5] Exit"
+    echo " [1] ISO to CHD (For PS1/PS2 Emulators)
+ [2] ISO to CSO (For PSP Emulators)"
+    echo " [3] CSO to ZSO (For Real Hardware)"
+    echo " [4] ISO to ZSO (For Real Hardware)"
+    echo " [5] About / License"
+    echo " [6] Exit"
     echo ""
-    read -p "Type 1, 2, 3, 4, or 5 and press Enter: " choice
+    read -p "Type 1, 2, 3, 4, 5, or 6 and press Enter: " choice
 }
 
 while true; do
     show_menu
     case $choice in
-        1) format="cso"; break;;
-        2|3) format="zso"; break;;
-        4)
+        1) format="chd"; break;;
+        2) format="cso"; break;;
+        3|4) format="zso"; break;;
+        5)
             clear
             echo "======================================================="
             echo "                ABOUT & LICENSE"
@@ -48,7 +51,7 @@ while true; do
             echo "======================================================="
             read -p "Press Enter to return..."
             ;;
-        5) exit 0;;
+        6) exit 0;;
         *) echo "Invalid option"; sleep 1;;
     esac
 done
@@ -62,7 +65,16 @@ clear
 echo "======================================================="
 echo "              COMPRESSION IN PROGRESS"
 echo "======================================================="
-"$ENGINE_PATH" --format=$format "$file_path"
+if [ "$format" == "chd" ]; then
+    if ! command -v chdman >/dev/null 2>&1; then
+        echo "Error: chdman is not installed or not in PATH."
+        echo "Please install it (e.g. 'brew install rom-tools' on Mac)."
+        exit 1
+    fi
+    chdman createdvd -i "$file_path" -o "${file_path%.*}.chd"
+else
+    "$ENGINE_PATH" --format=$format "$file_path"
+fi
 echo ""
 echo "======================================================="
 echo "                    ALL DONE!"

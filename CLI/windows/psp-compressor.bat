@@ -1,5 +1,5 @@
 @echo off
-title PSP & PS2 Game Compressor (ZSO ^& CSO)
+title PS1, PS2 ^& PSP Game Compressor (ZSO ^& CSO)
 color 0B
 setlocal EnableDelayedExpansion
 
@@ -15,32 +15,36 @@ if not exist "%ENGINE_PATH%" (
 :menu
 cls
 echo =======================================================
-echo           PSP & PS2 GAME COMPRESSOR (ZSO ^& CSO)
+echo           PS1, PS2 ^& PSP GAME COMPRESSOR (ZSO ^& CSO)
 echo =======================================================
 echo.
-echo NOTE: 
+echo NOTE:
+- CHD format is the ultimate standard for PS1 & PS2 Emulators (Requires chdman).
 echo - CSO format is for Emulators (PPSSPP & PCSX2) on PC/Mac/Phone.
 echo - ZSO format is for ACTUAL PSP (ARK-5) & PS2 (OPL) Hardware.
 echo.
 echo Please choose an option:
 echo.
-echo  [1] ISO to CSO (For Emulators)
-echo  [2] CSO to ZSO (For Real Hardware)
-echo  [3] ISO to ZSO (For Real Hardware)
-echo  [4] About / License
-echo  [5] Exit
+echo  [1] ISO to CHD (For PS1/PS2 Emulators)
+ [2] ISO to CSO (For PSP Emulators)
+echo  [3] CSO to ZSO (For Real Hardware)
+echo  [4] ISO to ZSO (For Real Hardware)
+echo  [5] About / License
+echo  [6] Exit
 echo.
-set /p choice="Type 1, 2, 3, 4, or 5 and press Enter: "
+set /p choice="Type 1, 2, 3, 4, 5, or 6 and press Enter: "
 
 if "%choice%"=="1" (
+    set format=chd
+) else if "%choice%"=="6" (
     set format=cso
-) else if "%choice%"=="2" (
+) else if "%choice%"=="6" (
     set format=zso
-) else if "%choice%"=="3" (
+) else if "%choice%"=="6" (
     set format=zso
-) else if "%choice%"=="4" (
+) else if "%choice%"=="6" (
     goto about
-) else if "%choice%"=="5" (
+) else if "%choice%"=="6" (
     exit
 ) else (
     goto menu
@@ -54,7 +58,19 @@ echo =======================================================
 echo               COMPRESSION IN PROGRESS
 echo =======================================================
 echo.
-"%ENGINE_PATH%" --format=%format% %filepath%
+if "%format%"=="chd" (
+    where chdman >nul 2>nul
+    if %errorlevel% neq 0 (
+        echo Error: chdman is not installed or not in PATH.
+        echo Please download chdman.exe or install MAME.
+        pause
+        exit /b
+    )
+    for %%I in (%filepath%) do set "outfile=%%~dpnI.chd"
+    chdman createdvd -i %filepath% -o "!outfile!"
+) else (
+    "%ENGINE_PATH%" --format=%format% %filepath%
+)
 
 echo.
 echo =======================================================
