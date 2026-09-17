@@ -24,5 +24,3 @@ If you know how to code and want to add something yourself, go for it!
 - **Bash Scripts (`.sh`):** Try to keep them POSIX compliant so they work on both Mac and Linux.
 - **Windows Scripts (`.bat`/`.ps1`):** Ensure paths use standard environment variables (e.g., `%LOCALAPPDATA%`).
 - **AppleScript/GUI:** If you tweak the Mac App, please make sure the `.app` bundle is re-zipped properly.
-
-Thanks for checking out the tool!
