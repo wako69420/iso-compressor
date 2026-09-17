@@ -1,5 +1,5 @@
 @echo off
-title PS1, PS2 ^& PSP Game Compressor (ZSO ^& CSO)
+title PS1, PS2 ^& PSP Game Compressor (CHD, ZSO ^& CSO)
 color 0B
 setlocal EnableDelayedExpansion
 
@@ -15,36 +15,40 @@ if not exist "%ENGINE_PATH%" (
 :menu
 cls
 echo =======================================================
-echo           PS1, PS2 ^& PSP GAME COMPRESSOR (ZSO ^& CSO)
+echo           PS1, PS2 ^& PSP GAME COMPRESSOR (CHD, ZSO, CSO)
 echo =======================================================
 echo.
 echo NOTE:
-- CHD format is the ultimate standard for PS1 & PS2 Emulators (Requires chdman).
-echo - CSO format is for Emulators (PPSSPP & PCSX2) on PC/Mac/Phone.
-echo - ZSO format is for ACTUAL PSP (ARK-5) & PS2 (OPL) Hardware.
+echo - CHD format is the ultimate standard for PS1 ^& PS2 Emulators (Requires chdman).
+echo - CSO format is for Emulators (PPSSPP ^& PCSX2) on PC/Mac/Phone.
+echo - ZSO format is for ACTUAL PSP (ARK-5) ^& PS2 (OPL) Hardware.
 echo.
 echo Please choose an option:
 echo.
 echo  [1] ISO to CHD (For PS1/PS2 Emulators)
- [2] ISO to CSO (For PSP Emulators)
+echo  [2] ISO to CSO (For PSP Emulators)
 echo  [3] CSO to ZSO (For Real Hardware)
 echo  [4] ISO to ZSO (For Real Hardware)
 echo  [5] Install CHDMAN (For CHD Support)
- [6] Auto-Update CLI Tool
- [7] About / License
+echo  [6] Auto-Update CLI Tool
+echo  [7] About / License
 echo  [8] Exit
 echo.
 set /p choice="Type 1, 2, 3, 4, 5, 6, 7, or 8 and press Enter: "
 
 if "%choice%"=="1" (
     set format=chd
-) else if "%choice%"=="8" (
+) else if "%choice%"=="2" (
     set format=cso
-) else if "%choice%"=="8" (
+) else if "%choice%"=="3" (
     set format=zso
-) else if "%choice%"=="8" (
+) else if "%choice%"=="4" (
     set format=zso
-) else if "%choice%"=="8" (
+) else if "%choice%"=="5" (
+    goto install_chdman
+) else if "%choice%"=="6" (
+    goto auto_update
+) else if "%choice%"=="7" (
     goto about
 ) else if "%choice%"=="8" (
     exit
@@ -64,9 +68,9 @@ if "%format%"=="chd" (
     where chdman >nul 2>nul
     if %errorlevel% neq 0 (
         echo Error: chdman is not installed or not in PATH.
-        echo Please download chdman.exe or install MAME.
+        echo Please use option [5] in the menu to install it.
         pause
-        exit /b
+        goto menu
     )
     for %%I in (%filepath%) do set "outfile=%%~dpnI.chd"
     chdman createdvd -i %filepath% -o "!outfile!"
@@ -79,8 +83,7 @@ echo =======================================================
 echo                   ALL DONE!
 echo =======================================================
 pause
-exit /b
-
+goto menu
 
 :install_chdman
 cls
@@ -114,7 +117,7 @@ echo                 ABOUT ^& LICENSE
 echo =======================================================
 echo.
 echo ISO/CSO Compressor v1.0
-echo A free, open-source tool for compressing massive PSP & PS2 games.
+echo A free, open-source tool for compressing massive PSP ^& PS2 games.
 echo.
 echo GitHub Repository: 
 echo https://github.com/wako69420/iso-compressor

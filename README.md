@@ -37,6 +37,12 @@ Open your Terminal and run the following command:
 curl -sL https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_mac.sh | bash
 ```
 
+**Linux Installation:**
+Open your Terminal and run the following command:
+```bash
+curl -sL https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_linux.sh | bash
+```
+
 **Windows Installation:**
 Open PowerShell and run the following command:
 ```powershell
