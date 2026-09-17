@@ -1,5 +1,6 @@
 #!/bin/bash
 # PS1, PS2 & PSP ISO Compressor TUI
+APP_VERSION="v1.4.1"
 ENGINE_PATH="$HOME/.iso-compressor/maxcso"
 
 if [ ! -f "$ENGINE_PATH" ]; then
@@ -42,6 +43,19 @@ show_menu() {
     read -p "Type 1, 2, 3, 4, 5, 6, 7, 8, or 9 and press Enter: " choice
 }
 
+echo "Checking for updates..."
+LATEST_VER=$(curl -m 2 -s https://api.github.com/repos/wako69420/iso-compressor/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+if [ -n "$LATEST_VER" ] && [ "$LATEST_VER" != "$APP_VERSION" ]; then
+    echo "======================================================="
+    echo "  UPDATE AVAILABLE: $LATEST_VER (Current: $APP_VERSION)"
+    echo "======================================================="
+    read -p "Would you like to update now? (y/n): " do_update
+    if [ "$do_update" = "y" ] || [ "$do_update" = "Y" ]; then
+        curl -sL https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_mac.sh | bash
+        exit 0
+    fi
+fi
+
 while true; do
     show_menu
     case $choice in
@@ -79,7 +93,7 @@ while true; do
             echo "======================================================="
             echo "                ABOUT & LICENSE"
             echo "======================================================="
-            echo "PS1, PS2 & PSP ISO Compressor v1.4.0"
+            echo "PS1, PS2 & PSP Game Compressor $APP_VERSION"
             echo "GitHub: https://github.com/wako69420/iso-compressor"
             echo "License: MIT License"
             echo "Credits:"

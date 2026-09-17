@@ -4,12 +4,27 @@ color 0B
 setlocal EnableDelayedExpansion
 
 set ENGINE_PATH=%LOCALAPPDATA%\iso-compressor\maxcso.exe
+set APP_VERSION=v1.4.1
+
 
 if not exist "%ENGINE_PATH%" (
     echo Error: maxcso.exe engine not found at %ENGINE_PATH%
     echo Please reinstall using the PowerShell command from GitHub.
     pause
     exit /b
+)
+
+echo Checking for updates...
+for /f "delims=" %%A in ('powershell -Command "(Invoke-RestMethod -Uri 'https://api.github.com/repos/wako69420/iso-compressor/releases/latest' -TimeoutSec 2).tag_name" 2^>nul') do set "LATEST_VER=%%A"
+if not "!LATEST_VER!"=="" if not "!LATEST_VER!"=="%APP_VERSION%" (
+    echo =======================================================
+    echo   UPDATE AVAILABLE: !LATEST_VER! ^(Current: %APP_VERSION%^)
+    echo =======================================================
+    set /p do_update="Would you like to update now? (y/n): "
+    if /I "!do_update!"=="y" (
+        powershell -Command "irm https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_win.ps1 | iex"
+        exit /b
+    )
 )
 
 :menu
@@ -152,7 +167,7 @@ echo =======================================================
 echo                 ABOUT ^& LICENSE
 echo =======================================================
 echo.
-echo PS1, PS2 ^& PSP ISO Compressor v1.4.0
+echo PS1, PS2 ^& PSP Game Compressor %APP_VERSION%
 echo A free, open-source tool for compressing massive PS1, PS2 ^& PSP games.
 echo.
 echo GitHub Repository: 
