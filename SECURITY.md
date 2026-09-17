@@ -5,8 +5,8 @@ Since this is a personal project, I only actively update and patch the **latest 
 
 | Version | Supported          |
 | ------- | ------------------ |
-| v1.4.x  | :white_check_mark: |
-| < 1.4.0 | :x:                |
+| Latest Release | :white_check_mark: |
+| Older Versions | :x:                |
 
 ## Reporting a Vulnerability
 If you happen to find a security flaw or a critical bug (like a command injection issue in the CLI tools), please **don't open a public issue**. 
