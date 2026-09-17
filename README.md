@@ -4,9 +4,13 @@
   <a href="https://github.com/wako69420/iso-compressor/releases"><img src="https://img.shields.io/github/downloads/wako69420/iso-compressor/total.svg?style=flat-square" alt="Downloads"></a>
   <a href="https://github.com/wako69420/iso-compressor/releases"><img src="https://img.shields.io/github/v/release/wako69420/iso-compressor.svg?style=flat-square" alt="Latest Release"></a>
   <a href="https://github.com/wako69420/iso-compressor/blob/master/LICENSE"><img src="https://img.shields.io/github/license/wako69420/iso-compressor.svg?style=flat-square" alt="License"></a>
+  <a href="https://github.com/wako69420/iso-compressor/commits/master"><img src="https://img.shields.io/github/last-commit/wako69420/iso-compressor?style=flat-square" alt="Last Commit"></a>
+  <img src="https://img.shields.io/github/repo-size/wako69420/iso-compressor?style=flat-square" alt="Repo Size">
 </p>
   Personal use project.
-  <p><i>A simple, drag-and-drop utility for Mac (with full interactive TUI support for Windows, Linux & Mac) that compresses massive PS1, PS2, and PSP <code>.ISO</code> and <code>.CUE</code> backups into highly optimized <code>.CHD</code>, <code>.ZSO</code>, or <code>.CSO</code> files.</i></p>
+  <p><i>A simple, drag-and-drop utility for Mac (with full interactive TUI support for Windows, Linux & Mac) that compresses massive PS1, PS2, and PSP <code>.ISO</code> and <code>.CUE</code> backups into highly optimized <code>.CHD</code>, <code>.ZSO</code>, or <code>.CSO</code> files.</i>  <a href="https://github.com/wako69420/iso-compressor/commits/master"><img src="https://img.shields.io/github/last-commit/wako69420/iso-compressor?style=flat-square" alt="Last Commit"></a>
+  <img src="https://img.shields.io/github/repo-size/wako69420/iso-compressor?style=flat-square" alt="Repo Size">
+</p>
   Saves space on your PSP, PS2, PS1, and emulators that can be used for additional titles; does not hinder functionality of the title, consoles and emulators read compressed files without any issues.
 
 ---
