@@ -8,6 +8,7 @@
   <br>
   <img src="https://img.shields.io/static/v1?label=Supports&message=Mac,%20Win,%20Linux%20%E2%80%A2%20PS1,%20PS2,%20PSP&color=blue&style=flat-square" alt="Supported Platforms and Hardware">
   <img src="https://img.shields.io/static/v1?label=Powered%20By&message=maxcso%20%26%20chdman&color=purple&style=flat-square" alt="Powered By">
+  <br>
   <a href="https://github.com/wako69420/iso-compressor/wiki"><img src="https://img.shields.io/static/v1?label=&message=Information%20%26%20Instructions&color=yellow&style=flat-square" alt="Information and Instructions"></a>
   <br><br>
   <a href="https://github.com/wako69420/iso-compressor/releases/latest"><img src="https://img.shields.io/static/v1?label=&message=Download%20Mac%20GUI&color=2ea44f&style=for-the-badge&logo=apple&logoColor=white" alt="Download Mac GUI"></a>
