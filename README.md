@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/static/v1?label=Supports&message=Mac,%20Win,%20Linux%20%E2%80%A2%20PS1,%20PS2,%20PSP&color=blue&style=flat-square" alt="Supported Platforms and Hardware">
   <img src="https://img.shields.io/static/v1?label=Powered%20By&message=maxcso%20%26%20chdman&color=purple&style=flat-square" alt="Powered By">
   <br><br>
-  <a href="https://github.com/wako69420/iso-compressor/releases/latest/download/ISO_Compressor_Mac.zip"><img src="https://img.shields.io/static/v1?label=&message=Download%20Mac%20GUI&color=2ea44f&style=for-the-badge&logo=apple" alt="Download Mac GUI"></a>
+  <a href="https://github.com/wako69420/iso-compressor/releases/latest"><img src="https://img.shields.io/static/v1?label=&message=Download%20Mac%20GUI&color=2ea44f&style=for-the-badge&logo=apple" alt="Download Mac GUI"></a>
   <a href="#tui-install"><img src="https://img.shields.io/static/v1?label=&message=Install%20Terminal%20TUI&color=2ea44f&style=for-the-badge&logo=gnu-bash" alt="Install TUI"></a>
 </p>
 
