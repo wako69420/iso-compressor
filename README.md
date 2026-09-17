@@ -8,13 +8,13 @@
 ## Features & Formats
 
 This tool explicitly provides conversion paths tailored for your specific gaming setup:
-- **ISO ➔ CHD**
+- **CUE / ISO ➔ CHD**
 - **ISO ➔ CSO**
 - **CSO ➔ ZSO**
 - **ISO ➔ ZSO**
 
 ### Why CHD is the ultimate standard for PS1 & PS2 Emulators
-If you are playing your games on **DuckStation (PS1)** or **PCSX2 (PS2)**, you should ALWAYS use the **CHD** format. CHD (Compressed Hunks of Data) uses extremely advanced lossless compression algorithms (like LZMA for data and FLAC for audio) which results in the absolute smallest file sizes possible for CD and DVD based games. It is the gold standard for emulation. 
+If you are playing your games on **DuckStation (PS1)** or **PCSX2 (PS2)**, you should ALWAYS use the **CHD** format. *(Note: Since PS1 games natively use `.bin` and `.cue` files instead of `.iso`, you just drag and drop the `.cue` file into this tool!)* CHD (Compressed Hunks of Data) uses extremely advanced lossless compression algorithms (like LZMA for data and FLAC for audio) which results in the absolute smallest file sizes possible for CD and DVD based games. It is the gold standard for emulation. 
 > [!NOTE]
 > You must have `chdman` installed on your system to use the CHD conversion option. Mac users can simply run `brew install rom-tools` in the terminal, or use the button in the application to auto-install it.
 

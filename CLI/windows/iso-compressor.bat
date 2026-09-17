@@ -25,7 +25,7 @@ echo - ZSO format is for ACTUAL PSP (ARK-5) ^& PS2 (OPL) Hardware.
 echo.
 echo Please choose an option:
 echo.
-echo  [1] ISO to CHD (For PS1/PS2 Emulators)
+echo  [1] CUE/ISO to CHD (For PS1/PS2 Emulators)
 echo  [2] ISO to CSO (For PSP Emulators)
 echo  [3] CSO to ZSO (For Real Hardware)
 echo  [4] ISO to ZSO (For Real Hardware)
@@ -60,7 +60,7 @@ if "%choice%"=="1" (
 )
 
 echo.
-set /p filepath="Drag and drop your .ISO or .CSO file here and press Enter: "
+set /p filepath="Drag and drop your .ISO, .CSO, or .CUE file here and press Enter: "
 
 cls
 echo =======================================================
@@ -75,8 +75,13 @@ if "%format%"=="chd" (
         pause
         goto menu
     )
+    for %%I in (%filepath%) do set "ext=%%~xI"
     for %%I in (%filepath%) do set "outfile=%%~dpnI.chd"
-    chdman createdvd -i %filepath% -o "!outfile!"
+    if /I "!ext!"==".cue" (
+        chdman createcd -i %filepath% -o "!outfile!"
+    ) else (
+        chdman createdvd -i %filepath% -o "!outfile!"
+    )
 ) else (
     "%ENGINE_PATH%" --format=%format% %filepath%
 )

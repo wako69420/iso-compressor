@@ -21,7 +21,7 @@ show_menu() {
     echo ""
     echo "Please choose an option:"
     echo ""
-    echo " [1] ISO to CHD (For PS1/PS2 Emulators)
+    echo " [1] CUE/ISO to CHD (For PS1/PS2 Emulators)
  [2] ISO to CSO (For PSP Emulators)"
     echo " [3] CSO to ZSO (For Real Hardware)"
     echo " [4] ISO to ZSO (For Real Hardware)"
@@ -107,7 +107,7 @@ while true; do
 done
 
 echo ""
-read -p "Drag and drop your .ISO or .CSO file here and press Enter: " file_path
+read -p "Drag and drop your .ISO, .CSO, or .CUE file here and press Enter: " file_path
 # Remove quotes and trailing spaces if dropped by Finder
 file_path=$(echo "$file_path" | sed -e "s/^'//" -e "s/'$//" -e 's/^"//' -e 's/"$//' | xargs)
 
@@ -121,7 +121,13 @@ if [ "$format" == "chd" ]; then
         echo "Please install it (e.g. 'brew install rom-tools' on Mac)."
         exit 1
     fi
-    chdman createdvd -i "$file_path" -o "${file_path%.*}.chd"
+    ext="${file_path##*.}"
+    ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
+    if [ "$ext" == "cue" ]; then
+        chdman createcd -i "$file_path" -o "${file_path%.*}.chd"
+    else
+        chdman createdvd -i "$file_path" -o "${file_path%.*}.chd"
+    fi
 else
     "$ENGINE_PATH" --format=$format "$file_path"
 fi
