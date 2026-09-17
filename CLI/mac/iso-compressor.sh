@@ -28,9 +28,6 @@ show_menu() {
     echo " • PS1 Games (.CUE) ---> ONLY use CHD (For Emulators)"
     echo " • PS2 Games (.ISO) ---> Use CHD (Emulation) or ZSO (Real Console)"
     echo " • PSP Games (.ISO) ---> Use CSO (Emulation) or ZSO (Real Console)"
-    echo ""
-    echo " * WARNING: Never compress PS1 CUE files to ZSO!"
-    echo " * WARNING: Never use CSO for PS2 games (Use CHD instead)!"
     echo "======================================================="
     echo " [1] CUE/ISO to CHD (For PS1/PS2 Emulators)
  [2] ISO to CSO (For PSP Emulators)"
