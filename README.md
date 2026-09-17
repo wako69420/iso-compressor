@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/static/v1?label=Powered%20By&message=maxcso%20%26%20chdman&color=purple&style=flat-square" alt="Powered By">
   <br><br>
   <a href="https://github.com/wako69420/iso-compressor/releases/latest"><img src="https://img.shields.io/static/v1?label=&message=Download%20Mac%20GUI&color=2ea44f&style=for-the-badge&logo=apple&logoColor=white" alt="Download Mac GUI"></a>
-  <a href="#tui-install"><img src="https://img.shields.io/static/v1?label=&message=Windows%20TUI&color=2ea44f&style=for-the-badge&logo=windows&logoColor=white" alt="Windows TUI"></a>
+  <a href="#tui-install"><img src="https://img.shields.io/static/v1?label=&message=Windows%20TUI&color=2ea44f&style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTAgOTMuN2wxODMuNi0yNS4zdjE3Ny40SDBWOTMuN3ptMCAzMjQuNmwxODMuNiAyNS4zVjI2OC40SDB2MTQ5Ljl6bTIwMy44IDI4TDQ0OCA0ODBWMjY4LjRIMjAzLjh2MTc3Ljl6bTAtMzgwLjZ2MTgwLjFINDQ4VjMyTDIwMy44IDY1Ljd6Ii8+PC9zdmc+" alt="Windows TUI"></a>
   <a href="#tui-install"><img src="https://img.shields.io/static/v1?label=&message=Mac%20TUI&color=2ea44f&style=for-the-badge&logo=apple&logoColor=white" alt="Mac TUI"></a>
   <a href="#tui-install"><img src="https://img.shields.io/static/v1?label=&message=Linux%20TUI&color=2ea44f&style=for-the-badge&logo=linux&logoColor=white" alt="Linux TUI"></a>
 </p>
