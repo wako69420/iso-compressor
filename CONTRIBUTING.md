@@ -1,8 +1,6 @@
 # Contributing to PS1, PS2 & PSP ISO Compressor
 
-First off, thanks for checking out my project! I built this primarily for my own personal use, but I'm thrilled if it helps out the broader retro-gaming and emulation community. 
-
-Since it's just me working on this, any help or contributions from the community are super appreciated!
+any help or contributions are super appreciated!
 
 ## How Can I Contribute?
 
