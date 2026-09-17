@@ -26,6 +26,24 @@ If you are playing games on **Real Physical PSP Hardware (ARK-5)** or a **Real P
 Back in the day, people used CSO files on real hardware to save space. However, because Zlib compression is so tight, the processors of the PSP and PS2 would choke trying to decompress the game files fast enough, causing terrible lag spikes and audio stuttering (especially in games like *Grand Theft Auto*). 
 The `.ZSO` format fixes this by using ultra-fast **LZ4 compression**. It shrinks the game beautifully, but decompresses roughly **500% faster**. This allows the physical console to unpack the game instantly, completely curing the lag spikes while still saving you massive amounts of space on your memory stick!
 
+
+---
+
+## Hardware & Emulator Compatibility List
+To ensure your compressed games boot flawlessly, please verify that your hardware or emulator meets the following requirements:
+
+### ZSO (For Real Hardware)
+* **Real PSP Console:** Must be running **ARK-4** or **ARK-5** Custom Firmware (CFW). Older firmwares like PRO-C or ME do not support ZSO natively out of the box.
+* **Real PS2 Console:** Must be using **OPL (Open PS2 Loader) v1.2.0 Beta** or newer. Older stable builds of OPL (like v1.1.0) do not have the ZSO decompression engine built-in.
+
+### CHD (For Emulators)
+* **PS1 Emulation:** Fully supported by **DuckStation**, **RetroArch** (SwanStation/Beetle cores), and most modern emulators. *(Note: Cannot be used on real PS1 hardware without extracting back to .bin/.cue and burning to a CD-R).*
+* **PS2 Emulation:** Fully supported by **PCSX2** (Nightly builds / v1.7+). *(Note: RPCS3 / PS3 Emulator does not support CHD).*
+
+### CSO (For PSP Emulation & Legacy CFW)
+* **PSP Emulation:** Fully supported by the **PPSSPP** emulator on all platforms (PC, Mac, Android, iOS).
+* **Real PSP Console:** Supported by virtually all legacy Custom Firmwares (PRO, ME) and modern ones (ARK). *(However, ZSO is highly recommended over CSO for real hardware to prevent lag).*
+
 ---
 
 ## Terminal / CLI Installation (Interactive TUI)
