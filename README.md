@@ -14,9 +14,12 @@ This tool explicitly provides conversion paths tailored for your specific gaming
 - **ISO ➔ ZSO**
 
 ### Why CHD is the ultimate standard for PS1 & PS2 Emulators
-If you are playing your games on **DuckStation (PS1)** or **PCSX2 (PS2)**, you should ALWAYS use the **CHD** format. *(Note: Since PS1 games natively use `.bin` and `.cue` files instead of `.iso`, you just drag and drop the `.cue` file into this tool!)* CHD (Compressed Hunks of Data) uses extremely advanced lossless compression algorithms (like LZMA for data and FLAC for audio) which results in the absolute smallest file sizes possible for CD and DVD based games. It is the gold standard for emulation. 
+If you are playing your games on **DuckStation (PS1)** or **PCSX2 (PS2)**, you should ALWAYS use the **CHD** format. CHD (Compressed Hunks of Data) uses extremely advanced lossless compression algorithms (like LZMA for data and FLAC for audio) which results in the absolute smallest file sizes possible for CD and DVD based games. It is the gold standard for emulation. 
 > [!NOTE]
 > You must have `chdman` installed on your system to use the CHD conversion option. Mac users can simply run `brew install rom-tools` in the terminal, or use the button in the application to auto-install it.
+
+> [!TIP]
+> **How to compress PS1 Games (BIN/CUE):** PS1 games often come with multiple `.bin` files and one `.cue` file. To compress them into a single `.chd` file, ensure all the `.bin` files are in the exact same folder, and **drag and drop ONLY the `.cue` file** into this tool! The engine will automatically read the `.cue` map, pull in all the associated `.bin` files, and merge them into one single file.
 
 ### Why CSO is better for PSP Emulators
 If you are playing your games on the **PPSSPP Emulator (PSP)** or **PCSX2 Emulator (PS2)** (on a PC, Mac, or phone), you should ALWAYS use the **CSO** format. An uncompressed `.ISO` file wastes gigabytes of storage space with blank "dummy data". The `.CSO` format uses standard Zlib compression to aggressively shrink the file down. Because modern PCs and smartphones have massive processing power, the emulator can decompress the CSO file instantly in the background, giving you massive storage savings with absolutely zero performance loss. 
