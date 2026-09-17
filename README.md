@@ -7,16 +7,14 @@
   <a href="https://github.com/wako69420/iso-compressor/commits/master"><img src="https://img.shields.io/github/last-commit/wako69420/iso-compressor?style=flat-square" alt="Last Commit"></a>
   <img src="https://img.shields.io/github/repo-size/wako69420/iso-compressor?style=flat-square" alt="Repo Size">
   <br>
-  <img src="https://img.shields.io/static/v1?label=Platforms&message=Mac,%20Windows,%20Linux&color=blue&style=flat-square" alt="Supported Platforms">
-  <img src="https://img.shields.io/static/v1?label=Hardware&message=PS1,%20PS2,%20PSP&color=orange&style=flat-square" alt="Hardware">
+  <img src="https://img.shields.io/static/v1?label=Supports&message=Mac,%20Win,%20Linux%20%E2%80%A2%20PS1,%20PS2,%20PSP&color=blue&style=flat-square" alt="Supported Platforms and Hardware">
   <img src="https://img.shields.io/static/v1?label=Powered%20By&message=maxcso%20%26%20chdman&color=purple&style=flat-square" alt="Powered By">
 </p>
   Personal use project.
   <p><i>A simple, drag-and-drop utility for Mac (with full interactive TUI support for Windows, Linux & Mac) that compresses massive PS1, PS2, and PSP <code>.ISO</code> and <code>.CUE</code> backups into highly optimized <code>.CHD</code>, <code>.ZSO</code>, or <code>.CSO</code> files.</i>  <a href="https://github.com/wako69420/iso-compressor/commits/master"><img src="https://img.shields.io/github/last-commit/wako69420/iso-compressor?style=flat-square" alt="Last Commit"></a>
   <img src="https://img.shields.io/github/repo-size/wako69420/iso-compressor?style=flat-square" alt="Repo Size">
   <br>
-  <img src="https://img.shields.io/static/v1?label=Platforms&message=Mac,%20Windows,%20Linux&color=blue&style=flat-square" alt="Supported Platforms">
-  <img src="https://img.shields.io/static/v1?label=Hardware&message=PS1,%20PS2,%20PSP&color=orange&style=flat-square" alt="Hardware">
+  <img src="https://img.shields.io/static/v1?label=Supports&message=Mac,%20Win,%20Linux%20%E2%80%A2%20PS1,%20PS2,%20PSP&color=blue&style=flat-square" alt="Supported Platforms and Hardware">
   <img src="https://img.shields.io/static/v1?label=Powered%20By&message=maxcso%20%26%20chdman&color=purple&style=flat-square" alt="Powered By">
 </p>
   Saves space on your PSP, PS2, PS1, and emulators that can be used for additional titles; does not hinder functionality of the title, consoles and emulators read compressed files without any issues.
