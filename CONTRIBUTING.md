@@ -1,28 +1,30 @@
 # Contributing to PS1, PS2 & PSP ISO Compressor
 
-First off, thank you for considering contributing to this project! It's people like you that make the retro-gaming and emulation community such a fantastic place.
+First off, thanks for checking out my project! I built this primarily for my own personal use, but I'm thrilled if it helps out the broader retro-gaming and emulation community. 
+
+Since it's just me working on this, any help or contributions from the community are super appreciated!
 
 ## How Can I Contribute?
 
 ### Reporting Bugs
-This section guides you through submitting a bug report. Following these guidelines helps maintainers and the community understand your report, reproduce the behavior, and find related reports.
+If you break something, let me know! 
 - **Use the bug report template** provided in the Issues tab.
-- **Include OS and Version** (e.g., Mac GUI, Windows TUI, Linux).
+- **Include your OS and Version** (e.g., Mac GUI, Windows TUI, Linux) so I can figure out what went wrong.
 
 ### Suggesting Enhancements
-Feature requests are always welcome! 
+Got a cool idea? I'm all ears.
 - **Use the feature request template** in the Issues tab.
-- Explain how this enhancement would help the broader community (e.g., adding a new compression format, supporting a new emulator).
+- Let me know why it would be a good addition (like adding a new compression format or supporting a new emulator).
 
 ### Pull Requests
-We actively welcome Pull Requests!
+If you know how to code and want to add something yourself, go for it!
 1. **Fork** the repository and create your branch from `master`.
 2. **Test** your changes! If you are editing the TUI, make sure it works across macOS and Linux (for bash scripts) or Windows (for `.bat` and PowerShell scripts).
-3. **Open a Pull Request** using the provided template. Make sure your PR description clearly describes what you changed and why.
+3. **Open a Pull Request** and just give me a quick summary of what you changed and why.
 
 ## Code Guidelines
-- **Bash Scripts (`.sh`):** Try to keep POSIX compliance where possible so it works across macOS and Linux.
+- **Bash Scripts (`.sh`):** Try to keep them POSIX compliant so they work on both Mac and Linux.
 - **Windows Scripts (`.bat`/`.ps1`):** Ensure paths use standard environment variables (e.g., `%LOCALAPPDATA%`).
-- **AppleScript/GUI:** When compiling changes to the Mac App, please ensure the `.app` bundle is re-zipped and properly referenced.
+- **AppleScript/GUI:** If you tweak the Mac App, please make sure the `.app` bundle is re-zipped properly.
 
-Thank you for helping us make ISO compression better for everyone!
+Thanks for checking out the tool!

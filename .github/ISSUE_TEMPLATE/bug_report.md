@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help us improve the compression tools
+about: Create a report to help me improve the compression tools
 title: "[BUG] "
 labels: bug
 assignees: ''
