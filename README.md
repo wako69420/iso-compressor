@@ -15,11 +15,13 @@ This tool explicitly provides conversion paths tailored for your specific gaming
 
 ### Why CHD is the ultimate standard for PS1 & PS2 Emulators
 If you are playing your games on **DuckStation (PS1)** or **PCSX2 (PS2)**, you should ALWAYS use the **CHD** format. CHD (Compressed Hunks of Data) uses extremely advanced lossless compression algorithms (like LZMA for data and FLAC for audio) which results in the absolute smallest file sizes possible for CD and DVD based games. It is the gold standard for emulation. 
-*(Note: You must have `chdman` installed on your system to use the CHD conversion option. Mac users can simply run `brew install rom-tools` in the terminal) or use in button in the application to auto install it.*
+> [!NOTE]
+> You must have `chdman` installed on your system to use the CHD conversion option. Mac users can simply run `brew install rom-tools` in the terminal, or use the button in the application to auto-install it.
 
 ### Why CSO is better for PSP Emulators
 If you are playing your games on the **PPSSPP Emulator (PSP)** or **PCSX2 Emulator (PS2)** (on a PC, Mac, or phone), you should ALWAYS use the **CSO** format. An uncompressed `.ISO` file wastes gigabytes of storage space with blank "dummy data". The `.CSO` format uses standard Zlib compression to aggressively shrink the file down. Because modern PCs and smartphones have massive processing power, the emulator can decompress the CSO file instantly in the background, giving you massive storage savings with absolutely zero performance loss. 
-*(Note: PPSSPP does not currently support the ZSO format).*
+> [!WARNING]
+> PPSSPP does not currently support the ZSO format.
 
 ### Why ZSO is better for Real Hardware (PSP & PS2)
 If you are playing games on **Real Physical PSP Hardware (ARK-5)** or a **Real PS2 Console (OPL)**, you should ALWAYS use the **ZSO** format. 
@@ -37,12 +39,18 @@ To ensure your compressed games boot flawlessly, please verify that your hardwar
 * **Real PS2 Console:** Must be using **OPL (Open PS2 Loader) v1.2.0 Beta** or newer. Older stable builds of OPL (like v1.1.0) do not have the ZSO decompression engine built-in.
 
 ### CHD (For Emulators)
-* **PS1 Emulation:** Fully supported by **DuckStation**, **RetroArch** (SwanStation/Beetle cores), and most modern emulators. *(Note: Cannot be used on real PS1 hardware without extracting back to .bin/.cue and burning to a CD-R).*
-* **PS2 Emulation:** Fully supported by **PCSX2** (Nightly builds / v1.7+). *(Note: RPCS3 / PS3 Emulator does not support CHD).*
+* **PS1 Emulation:** Fully supported by **DuckStation**, **RetroArch** (SwanStation/Beetle cores), and most modern emulators.
+  > [!IMPORTANT]
+  > Cannot be used on real PS1 hardware without extracting back to `.bin/.cue` and burning to a CD-R.
+* **PS2 Emulation:** Fully supported by **PCSX2** (Nightly builds / v1.7+).
+  > [!WARNING]
+  > RPCS3 (PS3 Emulator) does not support CHD.
 
 ### CSO (For PSP Emulation & Legacy CFW)
 * **PSP Emulation:** Fully supported by the **PPSSPP** emulator on all platforms (PC, Mac, Android, iOS).
-* **Real PSP Console:** Supported by virtually all legacy Custom Firmwares (PRO, ME) and modern ones (ARK). *(However, ZSO is highly recommended over CSO for real hardware to prevent lag).*
+* **Real PSP Console:** Supported by virtually all legacy Custom Firmwares (PRO, ME) and modern ones (ARK).
+  > [!TIP]
+  > ZSO is highly recommended over CSO for real hardware to prevent lag.
 
 ---
 
