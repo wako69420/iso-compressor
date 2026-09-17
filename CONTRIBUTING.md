@@ -14,7 +14,7 @@ any help or contributions are super appreciated!
 
 ### Pull Requests
 1. **Fork** the repository and create your branch from `master`.
-2. **Test** your changes! If you are editing the TUI, make sure it works across macOS and Linux (for bash scripts) or Windows (for `.bat` and PowerShell scripts).
+2. **Test** your changes, If you are editing the TUI, make sure it works across macOS and Linux (for bash scripts) or Windows (for `.bat` and PowerShell scripts).
 3. **Open a Pull Request** and just give me a quick summary of what you changed and why.
 
 ## Code Guidelines
