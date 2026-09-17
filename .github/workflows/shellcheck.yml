@@ -1,0 +1,23 @@
+name: "Shell Security & Quality Analysis"
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  shellcheck:
+    name: Run ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Run ShellCheck on Mac/Linux TUIs
+      uses: ludeeus/action-shellcheck@master
+      with:
+        scandir: './CLI'
+      env:
+        # Ignore some standard read loops/var expansion warnings that are safe in this script
+        SHELLCHECK_OPTS: "-e SC2164 -e SC2086 -e SC2162"
