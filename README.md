@@ -1,23 +1,21 @@
   <h1>PS1, PS2 & PSP Game Compressor (ISO/CUE to CHD, ZSO, CSO)</h1>
-  <p>
+<p>
   <a href="https://github.com/wako69420/iso-compressor/actions/workflows/shellcheck.yml"><img src="https://img.shields.io/github/actions/workflow/status/wako69420/iso-compressor/shellcheck.yml?style=flat-square&label=CI" alt="CI Status"></a>
   <a href="https://github.com/wako69420/iso-compressor/releases"><img src="https://img.shields.io/github/downloads/wako69420/iso-compressor/total.svg?style=flat-square" alt="Downloads"></a>
   <a href="https://github.com/wako69420/iso-compressor/releases"><img src="https://img.shields.io/github/v/release/wako69420/iso-compressor.svg?style=flat-square" alt="Latest Release"></a>
   <a href="https://github.com/wako69420/iso-compressor/blob/master/LICENSE"><img src="https://img.shields.io/github/license/wako69420/iso-compressor.svg?style=flat-square" alt="License"></a>
   <a href="https://github.com/wako69420/iso-compressor/commits/master"><img src="https://img.shields.io/github/last-commit/wako69420/iso-compressor?style=flat-square" alt="Last Commit"></a>
-  <img src="https://img.shields.io/github/repo-size/wako69420/iso-compressor?style=flat-square" alt="Repo Size">
   <br>
   <img src="https://img.shields.io/static/v1?label=Supports&message=Mac,%20Win,%20Linux%20%E2%80%A2%20PS1,%20PS2,%20PSP&color=blue&style=flat-square" alt="Supported Platforms and Hardware">
   <img src="https://img.shields.io/static/v1?label=Powered%20By&message=maxcso%20%26%20chdman&color=purple&style=flat-square" alt="Powered By">
+  <br><br>
+  <a href="https://github.com/wako69420/iso-compressor/releases/latest/download/ISO_Compressor_Mac.zip"><img src="https://img.shields.io/static/v1?label=&message=Download%20Mac%20GUI&color=2ea44f&style=for-the-badge&logo=apple" alt="Download Mac GUI"></a>
+  <a href="#tui-install"><img src="https://img.shields.io/static/v1?label=&message=Install%20Terminal%20TUI&color=2ea44f&style=for-the-badge&logo=gnu-bash" alt="Install TUI"></a>
 </p>
-  Personal use project.
-  <p><i>A simple, drag-and-drop utility for Mac (with full interactive TUI support for Windows, Linux & Mac) that compresses massive PS1, PS2, and PSP <code>.ISO</code> and <code>.CUE</code> backups into highly optimized <code>.CHD</code>, <code>.ZSO</code>, or <code>.CSO</code> files.</i>  <a href="https://github.com/wako69420/iso-compressor/commits/master"><img src="https://img.shields.io/github/last-commit/wako69420/iso-compressor?style=flat-square" alt="Last Commit"></a>
-  <img src="https://img.shields.io/github/repo-size/wako69420/iso-compressor?style=flat-square" alt="Repo Size">
-  <br>
-  <img src="https://img.shields.io/static/v1?label=Supports&message=Mac,%20Win,%20Linux%20%E2%80%A2%20PS1,%20PS2,%20PSP&color=blue&style=flat-square" alt="Supported Platforms and Hardware">
-  <img src="https://img.shields.io/static/v1?label=Powered%20By&message=maxcso%20%26%20chdman&color=purple&style=flat-square" alt="Powered By">
-</p>
-  Saves space on your PSP, PS2, PS1, and emulators that can be used for additional titles; does not hinder functionality of the title, consoles and emulators read compressed files without any issues.
+
+Personal use project.
+<p><i>A simple, drag-and-drop utility for Mac (with full interactive TUI support for Windows, Linux & Mac) that compresses massive PS1, PS2, and PSP <code>.ISO</code> and <code>.CUE</code> backups into highly optimized <code>.CHD</code>, <code>.ZSO</code>, or <code>.CSO</code> files.</i></p>
+Saves space on your PSP, PS2, PS1, and emulators that can be used for additional titles; does not hinder functionality of the title, consoles and emulators read compressed files without any issues.
 
 ---
 
@@ -73,6 +71,7 @@ To ensure your compressed games boot flawlessly, please verify that your hardwar
 
 ---
 
+<a name="tui-install"></a>
 ## Terminal / CLI Installation (Interactive TUI)
 If you prefer to use the command line, or if you are on Windows, you can install the interactive Terminal User Interface (TUI) directly to your system path.
 
