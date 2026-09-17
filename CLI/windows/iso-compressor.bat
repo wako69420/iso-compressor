@@ -32,9 +32,10 @@ echo  [4] ISO to ZSO (For Real Hardware)
 echo  [5] Install CHDMAN (For CHD Support)
 echo  [6] Auto-Update CLI Tool
 echo  [7] About / License
-echo  [8] Exit
+echo  [8] Uninstall CLI Tool
+echo  [9] Exit
 echo.
-set /p choice="Type 1, 2, 3, 4, 5, 6, 7, or 8 and press Enter: "
+set /p choice="Type 1, 2, 3, 4, 5, 6, 7, 8, or 9 and press Enter: "
 
 if "%choice%"=="1" (
     set format=chd
@@ -51,6 +52,8 @@ if "%choice%"=="1" (
 ) else if "%choice%"=="7" (
     goto about
 ) else if "%choice%"=="8" (
+    goto uninstall
+) else if "%choice%"=="9" (
     exit
 ) else (
     goto menu
@@ -109,6 +112,26 @@ echo =======================================================
 echo Fetching latest version from GitHub...
 powershell -Command "irm https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_win.ps1 | iex"
 exit /b
+
+
+:uninstall
+cls
+echo =======================================================
+echo                   UNINSTALL TOOL
+echo =======================================================
+echo This will completely remove the CLI tool and its backend files from your system.
+set /p confirm="Are you sure you want to uninstall? (y/n): "
+if /i "%confirm%"=="y" (
+    echo Removing backend engine...
+    rmdir /s /q "%LOCALAPPDATA%\iso-compressor"
+    echo Uninstallation complete. Please close this window.
+    pause
+    exit /b
+) else (
+    echo Uninstallation cancelled.
+    pause
+    goto menu
+)
 
 :about
 cls

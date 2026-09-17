@@ -28,9 +28,10 @@ show_menu() {
     echo " [5] Install CHDMAN (For CHD Support)
  [6] Auto-Update CLI Tool
  [7] About / License"
-    echo " [8] Exit"
+    echo " [8] Uninstall CLI Tool"
+    echo " [9] Exit"
     echo ""
-    read -p "Type 1, 2, 3, 4, 5, 6, 7, or 8 and press Enter: " choice
+    read -p "Type 1, 2, 3, 4, 5, 6, 7, 8, or 9 and press Enter: " choice
 }
 
 while true; do
@@ -81,7 +82,26 @@ while true; do
             echo "======================================================="
             read -p "Press Enter to return..."
             ;;
-        8) exit 0;;
+        8)
+            clear
+            echo "======================================================="
+            echo "                   UNINSTALL TOOL"
+            echo "======================================================="
+            echo "This will completely remove the CLI tool and its hidden files from your system."
+            read -p "Are you sure you want to uninstall? (y/n): " confirm
+            if [ "$confirm" = "y" ] || [ "$confirm" = "Y" ]; then
+                echo "Removing backend engine (~/.iso-compressor)..."
+                rm -rf ~/.iso-compressor
+                echo "Removing global command (/usr/local/bin/iso-compressor)..."
+                sudo rm -f /usr/local/bin/iso-compressor
+                echo "Uninstallation complete. You can close this terminal."
+                exit 0
+            else
+                echo "Uninstallation cancelled."
+                read -p "Press Enter to return..."
+            fi
+            ;;
+        9) exit 0;;
         *) echo "Invalid option"; sleep 1;;
     esac
 done
