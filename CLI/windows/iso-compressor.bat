@@ -116,8 +116,8 @@ echo =======================================================
 echo                 ABOUT ^& LICENSE
 echo =======================================================
 echo.
-echo ISO/CSO Compressor v1.0
-echo A free, open-source tool for compressing massive PSP ^& PS2 games.
+echo PS1, PS2 ^& PSP ISO Compressor v1.4.0
+echo A free, open-source tool for compressing massive PS1, PS2 ^& PSP games.
 echo.
 echo GitHub Repository: 
 echo https://github.com/wako69420/iso-compressor
@@ -126,7 +126,9 @@ echo License: MIT License
 echo.
 echo Credits:
 echo - maxcso engine by unknownbrackets
-echo - ZSO support powered by ARK-5 Team
+echo - CHD format ^& chdman by MAME Team
+echo - ZSO support (PSP) by ARK-5 Team
+echo - ZSO support (PS2) by OPL Team
 echo.
 echo =======================================================
 pause
