@@ -68,7 +68,7 @@ while true; do
             echo "                 AUTO-UPDATING TOOL"
             echo "======================================================="
             echo "Fetching latest version from GitHub..."
-            curl -sL https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_linux.sh | bash
+            curl -sL -o /tmp/iso_update.sh https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_linux.sh && bash /tmp/iso_update.sh && rm /tmp/iso_update.sh
             exit 0
             ;;
         7)
