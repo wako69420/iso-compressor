@@ -82,19 +82,19 @@ If you prefer to use the command line, or if you are on Windows, you can install
 **macOS Installation:**
 Open your Terminal and run the following command:
 ```bash
-curl -sL https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_mac.sh | bash
+curl -sL https://github.com/wako69420/iso-compressor/releases/latest/download/install_mac.sh | bash
 ```
 
 **Linux Installation:**
 Open your Terminal and run the following command:
 ```bash
-curl -sL https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_linux.sh | bash
+curl -sL https://github.com/wako69420/iso-compressor/releases/latest/download/install_linux.sh | bash
 ```
 
 **Windows Installation:**
 Open PowerShell and run the following command:
 ```powershell
-irm https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_win.ps1 | iex
+irm https://github.com/wako69420/iso-compressor/releases/latest/download/install_win.ps1 | iex
 ```
 
 Once installed on either OS, simply type the following command into any terminal to launch the Drag-and-Drop menu:
