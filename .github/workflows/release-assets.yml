@@ -1,0 +1,27 @@
+name: Attach TUI Scripts to Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  upload-tui-scripts:
+    name: Upload Install Scripts
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: Upload Scripts to Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Uploading install scripts to release: ${{ github.event.release.tag_name }}"
+          gh release upload "${{ github.event.release.tag_name }}" \
+            CLI/install_mac.sh \
+            CLI/install_linux.sh \
+            CLI/install_win.ps1 \
+            --clobber
