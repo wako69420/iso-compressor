@@ -112,7 +112,7 @@ iso-compressor
 ---
 
 ## License & Open Source
-This project is licensed under the [MIT License](LICENSE). 
+This project is licensed under the [BSD 3-Clause License](LICENSE). 
 * **maxcso Engine:** All core compression credit goes to [unknownbrackets](https://github.com/unknownbrackets/maxcso) for the blazing fast CSO/ZSO engine.
 * **MAME Team (chdman):** [MAME Development Team](https://www.mamedev.org/) (and Aaron Giles) for the CHD format and the `chdman` tool.
 * **ARK-5 Custom Firmware:** [ARK-5 Team](https://github.com/PSP-Archive/ARK-4) (Acid_Snake, KrazyS, and contributors) native ZSO (Inferno V2) support directly into the firmware.
