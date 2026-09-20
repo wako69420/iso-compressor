@@ -63,7 +63,7 @@ set /p choice="Type 1, 2, 3, 4, 5, 6, 7, 8, or 9 and press Enter: "
 if "%choice%"=="1" (
     set format=chd
 ) else if "%choice%"=="2" (
-    set format=cso
+    set format=cso1
 ) else if "%choice%"=="3" (
     set format=zso
 ) else if "%choice%"=="4" (

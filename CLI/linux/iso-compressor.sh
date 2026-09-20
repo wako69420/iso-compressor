@@ -59,7 +59,7 @@ while true; do
     show_menu
     case $choice in
         1) format="chd"; break;;
-        2) format="cso"; break;;
+        2) format="cso1"; break;;
         3|4) format="zso"; break;;
         5)
             clear
