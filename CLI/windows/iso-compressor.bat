@@ -22,7 +22,7 @@ if not "!LATEST_VER!"=="" if not "!LATEST_VER!"=="%APP_VERSION%" (
     echo =======================================================
     set /p do_update="Would you like to update now? (y/n): "
     if /I "!do_update!"=="y" (
-        curl -sL "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/iso-compressor.bat" -o "%LOCALAPPDATA%\iso-compressor\iso-compressor.bat"
+        powershell -NoProfile -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/iso-compressor.bat' -OutFile '%LOCALAPPDATA%\iso-compressor\iso-compressor.bat'"
     echo Update complete. Please restart the tool.
         exit /b
     )
@@ -138,7 +138,7 @@ echo =======================================================
 echo                 AUTO-UPDATING TOOL
 echo =======================================================
 echo Fetching latest version from GitHub...
-curl -sL "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/iso-compressor.bat" -o "%LOCALAPPDATA%\iso-compressor\iso-compressor.bat"
+powershell -NoProfile -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/iso-compressor.bat' -OutFile '%LOCALAPPDATA%\iso-compressor\iso-compressor.bat'"
     echo Update complete. Please restart the tool.
 exit /b
 
