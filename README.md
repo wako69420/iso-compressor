@@ -110,7 +110,7 @@ iso-compressor
 ---
 
 ## Roadmap
-Development on this project is active. Expect some QOL improvements, deeper automation, and wider format support in the upcoming releases.
+Development on this project is active. Expect some QOL improvements, deeper automation, wider format support and Linux support in the upcoming releases.
 
 ## License & Open Source
 This project is licensed under the [BSD 3-Clause License](LICENSE). 
