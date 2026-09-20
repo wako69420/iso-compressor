@@ -93,17 +93,18 @@ Open PowerShell and run the following command:
 irm https://github.com/wako69420/iso-compressor/releases/latest/download/install_win.ps1 | iex
 ```
 
-Once installed on either OS, simply type the following command into any terminal to launch the Drag-and-Drop menu:
+Once installed on either OS, simply type the following command into any terminal to launch the menu, where you can select **Batch Compress a Folder** or compress individual files via Drag-and-Drop:
 ```bash
 iso-compressor
 ```
 
 ---
 
-## How to use (Mac GUI)
-1. Download the latest Mac Release from the Releases tab.
-2. Open **`ISO Compressor (Mac).app`** by double-clicking it, or simply **drag-and-drop** your `.ISO`/`.CSO` files directly onto the app icon.
-3. A prompt will clearly ask you to choose between CHD (For PS1/PS2 Emulators), CSO (For PSP Emulators), or ZSO (For Real Hardware).
+## How to use (Mac & Windows GUI)
+1. Download the latest Release from the Releases tab.
+2. Open the app by double-clicking it to access the Main Menu, or simply **drag-and-drop** your `.ISO`/`.CSO` files (or an entire folder) directly onto the app icon.
+3. You can choose to compress a Single File, or use **Compress Folder (Batch)** to automatically process an entire directory of games sequentially!
+4. A prompt will clearly ask you to choose between CHD (For PS1/PS2 Emulators), CSO (For PSP Emulators), or ZSO (For Real Hardware).
 
 ---
 
