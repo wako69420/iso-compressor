@@ -34,13 +34,14 @@ show_menu() {
  [2] ISO to CSO (For PSP Emulators)"
     echo " [3] CSO to ZSO (For Real Hardware)"
     echo " [4] ISO to ZSO (For Real Hardware)"
-    echo " [5] Install CHDMAN (For CHD Support)
- [6] Auto-Update CLI Tool
- [7] About / License"
-    echo " [8] Uninstall CLI Tool"
-    echo " [9] Exit"
+    echo " [5] Batch Compress a Folder"
+    echo " [6] Install / Uninstall CHDMAN (For PS1/PS2 Emulators)
+ [7] Auto-Update CLI Tool
+ [8] About / License"
+    echo " [9] Uninstall CLI Tool"
+    echo " [10] Exit"
     echo ""
-    read -p "Type 1, 2, 3, 4, 5, 6, 7, 8, or 9 and press Enter: " choice
+    read -p "Type a number and press Enter: " choice
 }
 
 echo "Checking for updates..."

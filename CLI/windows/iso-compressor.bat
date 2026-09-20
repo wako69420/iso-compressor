@@ -53,13 +53,14 @@ echo  [1] CUE/ISO to CHD (For PS1/PS2 Emulators)
 echo  [2] ISO to CSO (For PSP Emulators)
 echo  [3] CSO to ZSO (For Real Hardware)
 echo  [4] ISO to ZSO (For Real Hardware)
-echo  [5] Install CHDMAN (For CHD Support)
-echo  [6] Auto-Update CLI Tool
-echo  [7] About / License
-echo  [8] Uninstall CLI Tool
-echo  [9] Exit
+echo  [5] Batch Compress a Folder
+echo  [6] Install / Uninstall CHDMAN (For PS1/PS2 Emulators)
+echo  [7] Auto-Update CLI Tool
+echo  [8] About / License
+echo  [9] Uninstall CLI Tool
+echo  [10] Exit
 echo.
-set /p choice="Type 1, 2, 3, 4, 5, 6, 7, 8, or 9 and press Enter: "
+set /p choice="Type a number and press Enter: "
 
 if "%choice%"=="1" (
     set format=chd
@@ -70,14 +71,16 @@ if "%choice%"=="1" (
 ) else if "%choice%"=="4" (
     set format=zso
 ) else if "%choice%"=="5" (
-    goto install_chdman
+    goto batch_compress
 ) else if "%choice%"=="6" (
-    goto auto_update
+    goto manage_chdman
 ) else if "%choice%"=="7" (
-    goto about
+    goto auto_update
 ) else if "%choice%"=="8" (
-    goto uninstall
+    goto about
 ) else if "%choice%"=="9" (
+    goto uninstall
+) else if "%choice%"=="10" (
     exit
 ) else (
     goto menu
@@ -116,18 +119,115 @@ echo =======================================================
 pause
 goto menu
 
-:install_chdman
+:batch_compress
 cls
 echo =======================================================
-echo                   INSTALL CHDMAN
+echo               BATCH COMPRESS A FOLDER
 echo =======================================================
 echo.
-echo Downloading chdman.exe engine from GitHub...
-curl -sL "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/chdman.exe" -o "%LOCALAPPDATA%\iso-compressor\chdman.exe"
-if exist "%LOCALAPPDATA%\iso-compressor\chdman.exe" (
-    echo Download complete! CHD format is now fully supported.
+set /p folderpath="Drag and drop your folder here and press Enter: "
+set "folderpath=!folderpath:"=!"
+
+echo.
+echo What format do you want to convert these games into?
+echo [1] CHD (PS1/PS2 Emulators)
+echo [2] CSO (PSP Emulators)
+echo [3] ZSO (Real Hardware)
+set /p batch_format_choice="Select format: "
+
+set batch_format=
+if "%batch_format_choice%"=="1" set batch_format=chd
+if "%batch_format_choice%"=="2" set batch_format=cso1
+if "%batch_format_choice%"=="3" set batch_format=zso
+
+if "!batch_format!"=="" (
+    echo Invalid choice.
+    pause
+    goto menu
+)
+
+if "!batch_format!"=="chd" (
+    if not exist "%LOCALAPPDATA%\iso-compressor\chdman.exe" (
+        echo Error: chdman.exe engine is not installed.
+        pause
+        goto menu
+    )
+)
+
+echo.
+echo =======================================================
+echo               COMPRESSION IN PROGRESS
+echo =======================================================
+echo.
+
+set valid_count=0
+set ext_found=
+
+for %%F in ("!folderpath!\*.iso" "!folderpath!\*.cso" "!folderpath!\*.cue") do (
+    set "ext=%%~xF"
+    if "!ext_found!"=="" (
+        set "ext_found=!ext!"
+    ) else if /i not "!ext_found!"=="!ext!" (
+        echo Error: The folder must contain only ONE file format to convert ^(e.g., only .iso OR only .cso^).
+        echo Mixed formats were found. Please separate them.
+        pause
+        goto menu
+    )
+    set /a valid_count+=1
+)
+
+if !valid_count!==0 (
+    echo Error: No valid game files ^(.iso, .cso, .cue^) were found in this folder.
+    pause
+    goto menu
+)
+
+for %%F in ("!folderpath!\*.iso" "!folderpath!\*.cso" "!folderpath!\*.cue") do (
+    echo Processing: %%~nxF
+    if "!batch_format!"=="chd" (
+        set "ext=%%~xF"
+        if /I "!ext!"==".cue" (
+            "%LOCALAPPDATA%\iso-compressor\chdman.exe" createcd -i "%%F" -o "%%~dpnF.chd"
+        ) else (
+            "%LOCALAPPDATA%\iso-compressor\chdman.exe" createdvd -i "%%F" -o "%%~dpnF.chd"
+        )
+    ) else (
+        "%ENGINE_PATH%" --format=!batch_format! "%%F"
+    )
+)
+
+echo.
+echo =======================================================
+echo                   ALL DONE!
+echo =======================================================
+pause
+goto menu
+
+:manage_chdman
+cls
+echo =======================================================
+echo          INSTALL / UNINSTALL CHDMAN
+echo =======================================================
+echo.
+if not exist "%LOCALAPPDATA%\iso-compressor\chdman.exe" (
+    echo chdman is currently NOT installed.
+    set /p confirm="Do you want to download and install it now? (y/n): "
+    if /i "!confirm!"=="y" (
+        echo Downloading chdman.exe engine from GitHub...
+        curl -sL "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/chdman.exe" -o "%LOCALAPPDATA%\iso-compressor\chdman.exe"
+        if exist "%LOCALAPPDATA%\iso-compressor\chdman.exe" (
+            echo Download complete! CHD format is now fully supported.
+        ) else (
+            echo Failed to download chdman.exe. Please check your internet connection.
+        )
+    )
 ) else (
-    echo Failed to download chdman.exe. Please check your internet connection.
+    echo chdman is currently INSTALLED.
+    set /p confirm="Do you want to uninstall and remove it? (y/n): "
+    if /i "!confirm!"=="y" (
+        del "%LOCALAPPDATA%\iso-compressor\chdman.exe"
+        echo chdman uninstalled successfully!
+    )
 )
 pause
 goto menu
