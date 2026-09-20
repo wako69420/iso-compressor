@@ -117,15 +117,12 @@ iso-compressor
 ## Roadmap
 Development on this project is active. Expect some QOL improvements, deeper automation, and wider format support in the upcoming releases.
 
-## Credits & Licensing
+## License & Open Source
 This project is licensed under the [BSD 3-Clause License](LICENSE). 
-
-The larger portion of the heavy lifting in this tool comes from others' wonderful work in compression engines and custom firmware. Licensing is as follows:
-
-* [maxcso](https://github.com/unknownbrackets/maxcso) is licensed under ISC.
-* [chdman (MAME)](https://www.mamedev.org/) is licensed under GPL-2.0 / BSD-3-Clause.
-* [ARK-5 Custom Firmware](https://github.com/PSP-Archive/ARK-4) is licensed under GPL-2.0.
-* [Open PS2 Loader (OPL)](https://github.com/ps2homebrew/Open-PS2-Loader) is licensed under GPL-2.0.
+* **maxcso Engine:** All core compression credit goes to [unknownbrackets](https://github.com/unknownbrackets/maxcso) for the blazing fast CSO/ZSO engine. (Licensed under ISC).
+* **MAME Team (chdman):** [MAME Development Team](https://www.mamedev.org/) (and Aaron Giles) for the CHD format and the `chdman` tool. (Licensed under GPL-2.0 / BSD-3-Clause).
+* **ARK-5 Custom Firmware:** [ARK-5 Team](https://github.com/PSP-Archive/ARK-4) (Acid_Snake, KrazyS, and contributors) native ZSO (Inferno V2) support directly into the firmware.
+* **OPL (Open PS2 Loader):** The [OPL Development Team](https://github.com/ps2homebrew/Open-PS2-Loader)
 
 ---
 
