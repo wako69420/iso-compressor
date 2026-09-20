@@ -92,9 +92,8 @@ echo               COMPRESSION IN PROGRESS
 echo =======================================================
 echo.
 if "%format%"=="chd" (
-    where chdman >nul 2>nul
-    if %errorlevel% neq 0 (
-        echo Error: chdman is not installed or not in PATH.
+    if not exist "%LOCALAPPDATA%\iso-compressor\chdman.exe" (
+        echo Error: chdman.exe engine is not installed.
         echo Please use option [5] in the menu to install it.
         pause
         goto menu
@@ -102,9 +101,9 @@ if "%format%"=="chd" (
     for %%I in (%filepath%) do set "ext=%%~xI"
     for %%I in (%filepath%) do set "outfile=%%~dpnI.chd"
     if /I "!ext!"==".cue" (
-        chdman createcd -i %filepath% -o "!outfile!"
+        "%LOCALAPPDATA%\iso-compressor\chdman.exe" createcd -i %filepath% -o "!outfile!"
     ) else (
-        chdman createdvd -i %filepath% -o "!outfile!"
+        "%LOCALAPPDATA%\iso-compressor\chdman.exe" createdvd -i %filepath% -o "!outfile!"
     )
 ) else (
     "%ENGINE_PATH%" --format=%format% %filepath%
@@ -123,13 +122,13 @@ echo =======================================================
 echo                   INSTALL CHDMAN
 echo =======================================================
 echo.
-echo CHD is the ultimate lossless compression format for PS1 and PS2 Emulators.
-echo To create CHD files, this app needs a free tool called 'chdman'.
-echo.
-echo Attempting to install via winget (MAME package)...
-winget install -e --id mamedev.MAME
-echo.
-echo Note: If winget fails, please download MAME manually from mamedev.org and add it to your PATH.
+echo Downloading chdman.exe engine from GitHub...
+curl -sL "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/chdman.exe" -o "%LOCALAPPDATA%\iso-compressor\chdman.exe"
+if exist "%LOCALAPPDATA%\iso-compressor\chdman.exe" (
+    echo Download complete! CHD format is now fully supported.
+) else (
+    echo Failed to download chdman.exe. Please check your internet connection.
+)
 pause
 goto menu
 
