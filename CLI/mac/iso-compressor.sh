@@ -1,6 +1,6 @@
 #!/bin/bash
 # PS1, PS2 & PSP ISO Compressor TUI
-APP_VERSION="v1.4.1"
+APP_VERSION="v1.4.2"
 ENGINE_PATH="$HOME/.iso-compressor/maxcso"
 
 if [ ! -f "$ENGINE_PATH" ]; then

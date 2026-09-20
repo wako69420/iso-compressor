@@ -4,7 +4,7 @@ color 0B
 setlocal EnableDelayedExpansion
 
 set ENGINE_PATH=%LOCALAPPDATA%\iso-compressor\maxcso.exe
-set APP_VERSION=v1.4.1
+set APP_VERSION=v1.4.2
 
 
 if not exist "%ENGINE_PATH%" (
