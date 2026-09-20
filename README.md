@@ -111,6 +111,11 @@ iso-compressor
 
 ---
 
+---
+
+## 🗺️ Roadmap
+Development on this project is highly active! While I am keeping the exact new features under wraps for now, expect some massive quality-of-life improvements, deeper automation, and wider format support in the upcoming releases. Stay tuned!
+
 ## License & Open Source
 This project is licensed under the [BSD 3-Clause License](LICENSE). 
 * **maxcso Engine:** All core compression credit goes to [unknownbrackets](https://github.com/unknownbrackets/maxcso) for the blazing fast CSO/ZSO engine.
