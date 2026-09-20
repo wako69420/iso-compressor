@@ -22,7 +22,8 @@ if not "!LATEST_VER!"=="" if not "!LATEST_VER!"=="%APP_VERSION%" (
     echo =======================================================
     set /p do_update="Would you like to update now? (y/n): "
     if /I "!do_update!"=="y" (
-        powershell -Command "irm https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_win.ps1 | iex"
+        curl -sL "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/iso-compressor.bat" -o "%LOCALAPPDATA%\iso-compressor\iso-compressor.bat"
+    echo Update complete. Please restart the tool.
         exit /b
     )
 )
@@ -138,7 +139,8 @@ echo =======================================================
 echo                 AUTO-UPDATING TOOL
 echo =======================================================
 echo Fetching latest version from GitHub...
-powershell -Command "irm https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_win.ps1 | iex"
+curl -sL "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/iso-compressor.bat" -o "%LOCALAPPDATA%\iso-compressor\iso-compressor.bat"
+    echo Update complete. Please restart the tool.
 exit /b
 
 
