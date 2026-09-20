@@ -6,7 +6,7 @@
   <a href="https://github.com/wako69420/iso-compressor/blob/master/LICENSE"><img src="https://img.shields.io/github/license/wako69420/iso-compressor.svg?style=flat-square" alt="License"></a>
   <a href="https://github.com/wako69420/iso-compressor/commits/master"><img src="https://img.shields.io/github/last-commit/wako69420/iso-compressor?style=flat-square" alt="Last Commit"></a>
   <br>
-  <img src="https://img.shields.io/static/v1?label=Supports&message=Mac,%20Win,%20Linux%20%E2%80%A2%20PS1,%20PS2,%20PSP&color=blue&style=flat-square" alt="Supported Platforms and Hardware">
+  <img src="https://img.shields.io/static/v1?label=Supports&message=Mac,%20Win%20%E2%80%A2%20PS1,%20PS2,%20PSP&color=blue&style=flat-square" alt="Supported Platforms and Hardware">
   <img src="https://img.shields.io/static/v1?label=Powered%20By&message=maxcso%20%26%20chdman&color=purple&style=flat-square" alt="Powered By">
   <br>
   <a href="https://github.com/wako69420/iso-compressor/wiki"><img src="https://img.shields.io/static/v1?label=&message=Information%20%26%20Instructions&color=yellow&style=flat-square" alt="Information and Instructions"></a>
@@ -15,11 +15,10 @@
   <a href="https://github.com/wako69420/iso-compressor/releases/latest"><img src="https://img.shields.io/static/v1?label=&message=Download%20Mac%20GUI&color=2ea44f&style=for-the-badge&logo=apple&logoColor=white" alt="Download Mac GUI"></a>
   <a href="#tui-install"><img src="https://img.shields.io/static/v1?label=&message=Windows%20TUI&color=2ea44f&style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTAgOTMuN2wxODMuNi0yNS4zdjE3Ny40SDBWOTMuN3ptMCAzMjQuNmwxODMuNiAyNS4zVjI2OC40SDB2MTQ5Ljl6bTIwMy44IDI4TDQ0OCA0ODBWMjY4LjRIMjAzLjh2MTc3Ljl6bTAtMzgwLjZ2MTgwLjFINDQ4VjMyTDIwMy44IDY1Ljd6Ii8+PC9zdmc+" alt="Windows TUI"></a>
   <a href="#tui-install"><img src="https://img.shields.io/static/v1?label=&message=Mac%20TUI&color=2ea44f&style=for-the-badge&logo=apple&logoColor=white" alt="Mac TUI"></a>
-  <a href="#tui-install"><img src="https://img.shields.io/static/v1?label=&message=Linux%20TUI&color=2ea44f&style=for-the-badge&logo=linux&logoColor=white" alt="Linux TUI"></a>
-</p>
+  </p>
 
 Personal use project.
-<p><i>A simple, drag-and-drop utility for Mac (with full interactive TUI support for Windows, Linux & Mac) that compresses massive PS1, PS2, and PSP <code>.ISO</code> and <code>.CUE</code> backups into highly optimized <code>.CHD</code>, <code>.ZSO</code>, or <code>.CSO</code> files.</i></p>
+<p><i>A simple, drag-and-drop utility for Mac (with full interactive TUI support for Windows, Mac) that compresses massive PS1, PS2, and PSP <code>.ISO</code> and <code>.CUE</code> backups into highly optimized <code>.CHD</code>, <code>.ZSO</code>, or <code>.CSO</code> files.</i></p>
 Saves space on your PSP, PS2, PS1, and emulators that can be used for additional titles; does not hinder functionality of the title, consoles and emulators read compressed files without any issues.
 
 ---
@@ -86,11 +85,7 @@ Open your Terminal and run the following command:
 curl -sL https://github.com/wako69420/iso-compressor/releases/latest/download/install_mac.sh | bash
 ```
 
-**Linux Installation:**
-Open your Terminal and run the following command:
-```bash
-curl -sL https://github.com/wako69420/iso-compressor/releases/latest/download/install_linux.sh | bash
-```
+
 
 **Windows Installation:**
 Open PowerShell and run the following command:
