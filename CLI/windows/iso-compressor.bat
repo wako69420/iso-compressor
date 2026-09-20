@@ -175,7 +175,7 @@ echo.
 echo GitHub Repository: 
 echo https://github.com/wako69420/iso-compressor
 echo.
-echo License: MIT License
+echo License: BSD 3-Clause License
 echo.
 echo Credits:
 echo - maxcso engine by unknownbrackets

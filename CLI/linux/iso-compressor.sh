@@ -1,4 +1,5 @@
 #!/bin/bash
+APP_VERSION="v1.4.1"
 # PS1, PS2 & PSP ISO Compressor TUI (Linux)
 
 if ! command -v maxcso >/dev/null 2>&1; then
@@ -100,7 +101,7 @@ while true; do
             echo "======================================================="
             echo "PS1, PS2 & PSP Game Compressor $APP_VERSION"
             echo "GitHub: https://github.com/wako69420/iso-compressor"
-            echo "License: MIT License"
+            echo "License: BSD 3-Clause License"
             echo "Credits:"
             echo "- maxcso engine by unknownbrackets"
             echo "- CHD format & chdman by MAME Team"
