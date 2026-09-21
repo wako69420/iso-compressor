@@ -252,9 +252,8 @@ echo This will completely remove the CLI tool and its backend files from your sy
 set /p confirm="Are you sure you want to uninstall? (y/n): "
 if /i "%confirm%"=="y" (
     echo Removing backend engine...
-    rmdir /s /q "%LOCALAPPDATA%\iso-compressor"
-    echo Uninstallation complete. Please close this window.
-    pause
+    echo Uninstallation complete. You can close this window.
+    start /b cmd /c "timeout /t 1 /nobreak >nul & rmdir /s /q ""%LOCALAPPDATA%\iso-compressor"""
     exit /b
 ) else (
     echo Uninstallation cancelled.
