@@ -70,7 +70,7 @@ while true; do
             echo "======================================================="
             echo ""
             read -p "Drag and drop your folder here and press Enter: " folderpath
-            folderpath=$(eval echo $folderpath)
+            folderpath=$(echo "$folderpath" | sed -e 's/[[:space:]]*$//' -e "s/^'//" -e "s/'$//" -e 's/^"//' -e 's/"$//' -e 's/\\//g')
             
             echo ""
             echo "What format do you want to convert these games into?"
@@ -231,7 +231,7 @@ done
 echo ""
 read -p "Drag and drop your .ISO, .CSO, or .CUE file here and press Enter: " file_path
 # Remove quotes and trailing spaces if dropped by Finder
-file_path=$(echo "$file_path" | sed -e "s/^'//" -e "s/'$//" -e 's/^"//' -e 's/"$//' | xargs)
+file_path=$(echo "$file_path" | sed -e 's/[[:space:]]*$//' -e "s/^'//" -e "s/'$//" -e 's/^"//' -e 's/"$//' -e 's/\\//g')
 
 clear
 echo "======================================================="
