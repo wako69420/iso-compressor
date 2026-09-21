@@ -6,10 +6,10 @@ $installDir = "$env:LOCALAPPDATA\iso-compressor"
 New-Item -ItemType Directory -Force -Path $installDir | Out-Null
 
 Write-Host "Downloading core engine..."
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/maxcso.exe" -OutFile "$installDir\maxcso.exe"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/maxcso.exe?t=$([guid]::NewGuid().ToString())" -OutFile "$installDir\maxcso.exe"
 
 Write-Host "Downloading TUI wrapper..."
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/iso-compressor.bat" -OutFile "$installDir\iso-compressor.bat"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/iso-compressor.bat?t=$([guid]::NewGuid().ToString())" -OutFile "$installDir\iso-compressor.bat"
 
 Write-Host "Adding to system PATH..."
 $envPath = [Environment]::GetEnvironmentVariable("PATH", "User")
