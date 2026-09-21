@@ -124,4 +124,4 @@ This project is licensed under the [BSD 3-Clause License](LICENSE).
 ---
 
 ## Tags
-`psp`, `ps2`, `iso`, `cso`, `zso`, `compression`, `maxcso`, `ppsspp`, `pcsx2`, `opl`, `ark-5`
+`batch-conversion`, `roms`, `rom-hacks`, `handhelds`, `retro-gaming`, `emulation`, `playstation`, `ps1`, `ps2`, `psp`, `chd`, `cso`, `zso`, `iso`, `pcsx2`, `duckstation`, `ppsspp`, `opl`, `ark-5`, `maxcso`
