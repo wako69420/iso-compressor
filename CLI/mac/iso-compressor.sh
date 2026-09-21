@@ -66,30 +66,129 @@ while true; do
         5)
             clear
             echo "======================================================="
-            echo "                   INSTALL CHDMAN"
+            echo "               BATCH COMPRESS A FOLDER"
             echo "======================================================="
-            echo "CHD is the ultimate lossless compression format for PS1 and PS2 Emulators."
-            echo "To create CHD files, this app needs a free tool called 'chdman'."
             echo ""
-            echo "Installing via Homebrew..."
-            if ! command -v brew >/dev/null 2>&1; then
-                echo "Error: Homebrew is not installed! Please install it first (brew.sh)"
-            else
-                brew install rom-tools
-                echo "Done!"
+            read -p "Drag and drop your folder here and press Enter: " folderpath
+            folderpath=$(eval echo $folderpath)
+            
+            echo ""
+            echo "What format do you want to convert these games into?"
+            echo "[1] CHD (PS1/PS2 Emulators)"
+            echo "[2] CSO (PSP Emulators)"
+            echo "[3] ZSO (Real Hardware)"
+            read -p "Select format: " batch_format_choice
+            
+            batch_format=""
+            if [ "$batch_format_choice" = "1" ]; then batch_format="chd"; fi
+            if [ "$batch_format_choice" = "2" ]; then batch_format="cso1"; fi
+            if [ "$batch_format_choice" = "3" ]; then batch_format="zso"; fi
+            
+            if [ -z "$batch_format" ]; then
+                echo "Invalid choice."
+                read -p "Press Enter to return..."
+                continue
             fi
+            
+            if [ "$batch_format" = "chd" ]; then
+                if ! command -v chdman >/dev/null 2>&1; then
+                    echo "Error: chdman engine is not installed."
+                    read -p "Press Enter to return..."
+                    continue
+                fi
+            fi
+            
+            echo ""
+            echo "======================================================="
+            echo "               COMPRESSION IN PROGRESS"
+            echo "======================================================="
+            echo ""
+            
+            valid_count=0
+            ext_found=""
+            
+            for f in "$folderpath"/*.iso "$folderpath"/*.cso "$folderpath"/*.cue; do
+                [ -e "$f" ] || continue
+                ext="${f##*.}"
+                ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
+                if [ -z "$ext_found" ]; then
+                    ext_found="$ext"
+                elif [ "$ext_found" != "$ext" ]; then
+                    echo "Error: The folder must contain only ONE file format to convert (e.g., only .iso OR only .cso)."
+                    echo "Mixed formats were found. Please separate them."
+                    read -p "Press Enter to return..."
+                    continue 2
+                fi
+                valid_count=$((valid_count+1))
+            done
+            
+            if [ "$valid_count" -eq 0 ]; then
+                echo "Error: No valid game files (.iso, .cso, .cue) were found in this folder."
+                read -p "Press Enter to return..."
+                continue
+            fi
+            
+            for f in "$folderpath"/*.iso "$folderpath"/*.cso "$folderpath"/*.cue; do
+                [ -e "$f" ] || continue
+                echo "Processing: $(basename "$f")"
+                if [ "$batch_format" = "chd" ]; then
+                    ext="${f##*.}"
+                    ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
+                    if [ "$ext" = "cue" ]; then
+                        chdman createcd -i "$f" -o "${f%.*}.chd"
+                    else
+                        chdman createdvd -i "$f" -o "${f%.*}.chd"
+                    fi
+                else
+                    "$ENGINE_PATH" --format=$batch_format "$f"
+                fi
+            done
+            
+            echo ""
+            echo "======================================================="
+            echo "                   ALL DONE!"
+            echo "======================================================="
             read -p "Press Enter to return..."
             ;;
         6)
             clear
             echo "======================================================="
+            echo "          INSTALL / UNINSTALL CHDMAN"
+            echo "======================================================="
+            echo ""
+            if ! command -v chdman >/dev/null 2>&1; then
+                echo "chdman is currently NOT installed."
+                read -p "Do you want to download and install it now? (y/n): " confirm
+                if [[ "$confirm" == [yY] ]]; then
+                    echo "Installing via Homebrew..."
+                    if ! command -v brew >/dev/null 2>&1; then
+                        echo "Error: Homebrew is not installed! Please install it first (brew.sh)"
+                    else
+                        brew install rom-tools
+                        echo "Done!"
+                    fi
+                fi
+            else
+                echo "chdman is currently INSTALLED."
+                read -p "Do you want to uninstall and remove it? (y/n): " confirm
+                if [[ "$confirm" == [yY] ]]; then
+                    echo "Uninstalling via Homebrew..."
+                    brew uninstall rom-tools
+                    echo "Done!"
+                fi
+            fi
+            read -p "Press Enter to return..."
+            ;;
+        7)
+            clear
+            echo "======================================================="
             echo "                 AUTO-UPDATING TOOL"
             echo "======================================================="
             echo "Fetching latest version from GitHub..."
-            curl -sL -o /tmp/iso_update.sh https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_mac.sh && bash /tmp/iso_update.sh && rm /tmp/iso_update.sh
+            curl -sL -o /tmp/iso_update.sh "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_mac.sh?t=$(date +%s)" && bash /tmp/iso_update.sh && rm /tmp/iso_update.sh
             exit 0
             ;;
-        7)
+        8)
             clear
             echo "======================================================="
             echo "                ABOUT & LICENSE"
@@ -105,7 +204,7 @@ while true; do
             echo "======================================================="
             read -p "Press Enter to return..."
             ;;
-        8)
+        9)
             clear
             echo "======================================================="
             echo "                   UNINSTALL TOOL"
@@ -124,7 +223,7 @@ while true; do
                 read -p "Press Enter to return..."
             fi
             ;;
-        9) exit 0;;
+        10) exit 0;;
         *) echo "Invalid option"; sleep 1;;
     esac
 done
