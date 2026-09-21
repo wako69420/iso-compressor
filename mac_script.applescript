@@ -63,7 +63,7 @@ Please select an option:" default items {"Convert Single File..."}
 		set theFolder to choose folder with prompt "Select a Folder (Batch Compress):"
 		if theFolder is not false then
 			set folderPath to POSIX path of theFolder
-			set foundFilesStr to do shell script "find " & quoted form of folderPath & " -maxdepth 1 -type f \\( -iname \\"*.iso\\" -o -iname \\"*.cso\\" -o -iname \\"*.cue\\" \\)"
+			set foundFilesStr to do shell script "find " & quoted form of folderPath & " -maxdepth 1 -type f \\( -iname \"*.iso\" -o -iname \"*.cso\" -o -iname \"*.cue\" \\)"
 			
 			if foundFilesStr is "" then
 				display alert "Batch Error" message "No valid game files (.iso, .cso, .cue) were found in this folder."
