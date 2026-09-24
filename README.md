@@ -19,7 +19,7 @@
   </p>
 
 Personal use project.
-<p><i>A simple, drag-and-drop utility for Mac (with full interactive TUI support for Windows, Mac) that compresses massive PS1, PS2, and PSP <code>.ISO</code> and <code>.CUE</code> backups into highly optimized <code>.CHD</code>, <code>.ZSO</code>, or <code>.CSO</code> files.</i></p>
+<p><i>A simple, drag-and-drop utility for Mac (with full interactive TUI support for Windows, Mac) that compresses massive PS1, PS2, and PSP <code>.ISO</code> and <code>.CUE</code> backups into highly optimized <code>.CHD</code>, <code>.ZSO</code>, or <code>.CSO</code> files with batch conversion suport.</i></p>
 Saves space on your PSP, PS2, PS1, and emulators that can be used for additional titles; does not hinder functionality of the title, consoles and emulators read compressed files without any issues.
 
 ---
