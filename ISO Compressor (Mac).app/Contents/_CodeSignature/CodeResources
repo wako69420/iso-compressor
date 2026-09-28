@@ -8,17 +8,25 @@
 		<data>
 		a9EtckxARiTlkQbkTvOQoML3htA=
 		</data>
+		<key>Resources/Credits.rtf</key>
+		<data>
+		yA9La4bZ9O2Yg3Toy32WpL00DOM=
+		</data>
 		<key>Resources/Scripts/main.scpt</key>
 		<data>
-		YhrjLUYQPOUtr1fHbo8Gy/lJB0c=
+		8oF8WtU+VTEgx0KAA+yvDhpPR7A=
 		</data>
 		<key>Resources/droplet.icns</key>
 		<data>
-		qNNSP6gATivEfI1mX4+VCxUouHQ=
+		0R2g3NTc8UnGzoH9n/lwyZze/xQ=
 		</data>
 		<key>Resources/droplet.rsrc</key>
 		<data>
 		ar5xmDs9mPpaINVXiVlVqUCB8ao=
+		</data>
+		<key>Resources/maxcso</key>
+		<data>
+		YEQFlLACqS2yQ7lh2JUP9VOESl8=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -34,26 +42,37 @@
 			ODsUYllURNWtxFmRwEBdINBJ1LHIf8D8tzAN8qjKYuc=
 			</data>
 		</dict>
+		<key>Resources/Credits.rtf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yA9La4bZ9O2Yg3Toy32WpL00DOM=
+			</data>
+			<key>hash2</key>
+			<data>
+			aAHc2s7RJA4yxY6VEO6jF7Q7KceMjaSyqOrtX2qcetc=
+			</data>
+		</dict>
 		<key>Resources/Scripts/main.scpt</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YhrjLUYQPOUtr1fHbo8Gy/lJB0c=
+			8oF8WtU+VTEgx0KAA+yvDhpPR7A=
 			</data>
 			<key>hash2</key>
 			<data>
-			yAqDk/HB781050/dPJRmZpprQmjQ3sX9JEdx8iU8ids=
+			mtEAJ8yRmwmLZ03UvGxFllKJI3+eCutQjvUCD04LMoc=
 			</data>
 		</dict>
 		<key>Resources/droplet.icns</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qNNSP6gATivEfI1mX4+VCxUouHQ=
+			0R2g3NTc8UnGzoH9n/lwyZze/xQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			8bc0JqW+sc2ju5zB4gkHAD9/lxjPcq52eiav7nh8dZ4=
+			aFy2ZcjnvBRKoTx/RWQplh81gVXctKJGTou2SB4U4UA=
 			</data>
 		</dict>
 		<key>Resources/droplet.rsrc</key>
@@ -65,6 +84,17 @@
 			<key>hash2</key>
 			<data>
 			NV2dNLwgykV7aWfTBywUILBA9Lidl7F51PrkQw77SbM=
+			</data>
+		</dict>
+		<key>Resources/maxcso</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YEQFlLACqS2yQ7lh2JUP9VOESl8=
+			</data>
+			<key>hash2</key>
+			<data>
+			CSERh/MORa1C05/gyXkq15b+Nibubbo6pWfS30BTKxc=
 			</data>
 		</dict>
 	</dict>

@@ -4,7 +4,7 @@ color 0B
 setlocal EnableDelayedExpansion
 
 set ENGINE_PATH=%LOCALAPPDATA%\iso-compressor\maxcso.exe
-set APP_VERSION=v1.4.2
+set APP_VERSION=v1.4.3
 
 
 if not exist "%ENGINE_PATH%" (
@@ -53,12 +53,12 @@ echo  [1] CUE/ISO to CHD (For PS1/PS2 Emulators)
 echo  [2] ISO to CSO (For PSP Emulators)
 echo  [3] CSO to ZSO (For Real Hardware)
 echo  [4] ISO to ZSO (For Real Hardware)
-echo  [5] Batch Compress a Folder
-echo  [6] Install / Uninstall CHDMAN (For PS1/PS2 Emulators)
-echo  [7] Auto-Update CLI Tool
-echo  [8] About / License
-echo  [9] Uninstall CLI Tool
-echo  [10] Exit
+echo  [5] Batch Compress a Folder\necho  [6] Decompress (CHD/CSO/ZSO -^> CUE/ISO)
+echo  [7] Install / Uninstall CHDMAN (For PS1/PS2 Emulators)
+echo  [8] Auto-Update CLI Tool
+echo  [9] About / License
+echo  [10] Uninstall CLI Tool
+echo  [11] Exit
 echo.
 set /p choice="Type a number and press Enter: "
 
@@ -104,12 +104,18 @@ if "%format%"=="chd" (
     for %%I in (%filepath%) do set "ext=%%~xI"
     for %%I in (%filepath%) do set "outfile=%%~dpnI.chd"
     if /I "!ext!"==".cue" (
+        for %%S in (%filepath%) do echo %%~zS >> "%TEMP%\iso_orig.txt"
         "%LOCALAPPDATA%\iso-compressor\chdman.exe" createcd -i %filepath% -o "!outfile!"
+        for %%S in ("!outfile!") do echo %%~zS >> "%TEMP%\iso_new.txt"
     ) else (
+        for %%S in (%filepath%) do echo %%~zS >> "%TEMP%\iso_orig.txt"
         "%LOCALAPPDATA%\iso-compressor\chdman.exe" createdvd -i %filepath% -o "!outfile!"
+        for %%S in ("!outfile!") do echo %%~zS >> "%TEMP%\iso_new.txt"
     )
 ) else (
-    "%ENGINE_PATH%" --format=%format% %filepath%
+    for %%S in (%filepath%) do echo %%~zS >> "%TEMP%\iso_orig.txt"
+        "%ENGINE_PATH%" --format=%format% %filepath%
+        for %%S in ("!outfile!") do echo %%~zS >> "%TEMP%\iso_new.txt"
 )
 
 echo.
@@ -187,12 +193,18 @@ for %%F in ("!folderpath!\*.iso" "!folderpath!\*.cso" "!folderpath!\*.cue") do (
     if "!batch_format!"=="chd" (
         set "ext=%%~xF"
         if /I "!ext!"==".cue" (
+            echo %%~zF >> "%TEMP%\iso_orig.txt"
             "%LOCALAPPDATA%\iso-compressor\chdman.exe" createcd -i "%%F" -o "%%~dpnF.chd"
+            for %%S in ("%%~dpnF.chd") do echo %%~zS >> "%TEMP%\iso_new.txt"
         ) else (
+            echo %%~zF >> "%TEMP%\iso_orig.txt"
             "%LOCALAPPDATA%\iso-compressor\chdman.exe" createdvd -i "%%F" -o "%%~dpnF.chd"
+            for %%S in ("%%~dpnF.chd") do echo %%~zS >> "%TEMP%\iso_new.txt"
         )
     ) else (
-        "%ENGINE_PATH%" --format=!batch_format! "%%F"
+        echo %%~zF >> "%TEMP%\iso_orig.txt"
+            "%ENGINE_PATH%" --format=!batch_format! "%%F"
+            for %%S in ("%%~dpnF.!batch_format!") do echo %%~zS >> "%TEMP%\iso_new.txt"
     )
 )
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 # PS1, PS2 & PSP ISO Compressor TUI
-APP_VERSION="v1.4.2"
+APP_VERSION="v1.4.3"
 ENGINE_PATH="$HOME/.iso-compressor/maxcso"
 
 if [ ! -f "$ENGINE_PATH" ]; then
@@ -135,9 +135,9 @@ while true; do
                     ext="${f##*.}"
                     ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
                     if [ "$ext" = "cue" ]; then
-                        chdman createcd -i "$f" -o "${f%.*}.chd"
+                        orig=$(stat -f%z "$f" 2>/dev/null); total_orig=$((total_orig + orig)); chdman createcd -i "$f" -o "${f%.*}.chd"; new=$(stat -f%z "${f%.*}.chd" 2>/dev/null); total_new=$((total_new + new))
                     else
-                        chdman createdvd -i "$f" -o "${f%.*}.chd"
+                        orig=$(stat -f%z "$f" 2>/dev/null); total_orig=$((total_orig + orig)); chdman createdvd -i "$f" -o "${f%.*}.chd"; new=$(stat -f%z "${f%.*}.chd" 2>/dev/null); total_new=$((total_new + new))
                     fi
                 else
                     "$ENGINE_PATH" --format=$batch_format "$f"
@@ -151,6 +151,48 @@ while true; do
             read -p "Press Enter to return..."
             ;;
         6)
+            total_orig=0
+            total_new=0
+            read -e -p "Drag and drop your compressed file(s) or folder here and press Enter: " filepath
+            filepath=$(echo "$filepath" | sed -e 's/[[:space:]]*$//' -e "s/^'//" -e "s/'$//" -e 's/^"//' -e 's/"$//' -e 's/\\//g')
+            
+            if [ -d "$filepath" ]; then
+                for f in "$filepath"/*.chd "$filepath"/*.cso "$filepath"/*.zso "$filepath"/*.CHD "$filepath"/*.CSO "$filepath"/*.ZSO; do
+                    [ -e "$f" ] || continue
+                    ext="${f##*.}"
+                    ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
+                    if [ "$ext" = "chd" ]; then
+                        if chdman extractcd -i "$f" -o "${f%.*}.cue" 2>/dev/null; then
+                            :
+                        else
+                            rm -f "${f%.*}.cue" "${f%.*}"*.bin 2>/dev/null
+                            chdman extractdvd -i "$f" -o "${f%.*}.iso"
+                        fi
+                    elif [ "$ext" = "cso" ] || [ "$ext" = "zso" ]; then
+                        "$ENGINE_PATH" --decompress "$f" -o "${f%.*}.iso"
+                    fi
+                done
+            elif [ -f "$filepath" ]; then
+                ext="${filepath##*.}"
+                ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
+                if [ "$ext" = "chd" ]; then
+                    if chdman extractcd -i "$filepath" -o "${filepath%.*}.cue" 2>/dev/null; then
+                        :
+                    else
+                        rm -f "${filepath%.*}.cue" "${filepath%.*}"*.bin 2>/dev/null
+                        chdman extractdvd -i "$filepath" -o "${filepath%.*}.iso"
+                    fi
+                elif [ "$ext" = "cso" ] || [ "$ext" = "zso" ]; then
+                    "$ENGINE_PATH" --decompress "$filepath" -o "${filepath%.*}.iso"
+                fi
+            else
+                echo "Invalid file or folder."
+            fi
+            echo ""
+            echo "Decompression complete!"
+            read -p "Press Enter to return to menu..."
+            ;;
+        7)
             clear
             echo "======================================================="
             echo "          INSTALL / UNINSTALL CHDMAN"
@@ -179,7 +221,7 @@ while true; do
             fi
             read -p "Press Enter to return..."
             ;;
-        7)
+        9)
             clear
             echo "======================================================="
             echo "                 AUTO-UPDATING TOOL"
@@ -188,7 +230,7 @@ while true; do
             curl -sL -o /tmp/iso_update.sh "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/install_mac.sh?t=$(date +%s)" && bash /tmp/iso_update.sh && rm /tmp/iso_update.sh
             exit 0
             ;;
-        8)
+        10)
             clear
             echo "======================================================="
             echo "                ABOUT & LICENSE"
@@ -204,7 +246,7 @@ while true; do
             echo "======================================================="
             read -p "Press Enter to return..."
             ;;
-        9)
+        11)
             clear
             echo "======================================================="
             echo "                   UNINSTALL TOOL"
@@ -223,7 +265,7 @@ while true; do
                 read -p "Press Enter to return..."
             fi
             ;;
-        10) exit 0;;
+        12) exit 0;;
         *) echo "Invalid option"; sleep 1;;
     esac
 done
