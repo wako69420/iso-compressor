@@ -53,12 +53,14 @@ echo  [1] CUE/ISO to CHD (For PS1/PS2 Emulators)
 echo  [2] ISO to CSO (For PSP Emulators)
 echo  [3] CSO to ZSO (For Real Hardware)
 echo  [4] ISO to ZSO (For Real Hardware)
-echo  [5] Batch Compress a Folder\necho  [6] Decompress (CHD/CSO/ZSO -^> CUE/ISO)
+echo  [5] Batch Compress a Folder
+echo  [6] Decompress (CHD/CSO/ZSO -^> CUE/ISO)
 echo  [7] Install / Uninstall CHDMAN (For PS1/PS2 Emulators)
-echo  [8] Auto-Update CLI Tool
-echo  [9] About / License
-echo  [10] Uninstall CLI Tool
-echo  [11] Exit
+echo  [8] Space Saved Stats
+echo  [9] Auto-Update CLI Tool
+echo  [10] About / License
+echo  [11] Uninstall CLI Tool
+echo  [12] Exit
 echo.
 set /p choice="Type a number and press Enter: "
 
@@ -77,10 +79,12 @@ if "%choice%"=="1" (
 ) else if "%choice%"=="7" (
     goto auto_update
 ) else if "%choice%"=="8" (
+    goto stats
+) else if "%choice%"=="12" (
     goto about
-) else if "%choice%"=="9" (
+) else if "%choice%"=="12" (
     goto uninstall
-) else if "%choice%"=="10" (
+) else if "%choice%"=="12" (
     exit
 ) else (
     goto menu
@@ -241,6 +245,23 @@ if not exist "%LOCALAPPDATA%\iso-compressor\chdman.exe" (
         echo chdman uninstalled successfully!
     )
 )
+pause
+goto menu
+
+:stats
+cls
+echo.
+echo ==================================================
+echo               LIFETIME SPACE SAVED
+echo ==================================================
+echo.
+powershell -NoProfile -Command "$f='%LOCALAPPDATA%\iso-compressor\stats.txt'; [long]$t=0; if (Test-Path $f) { $t=[long](Get-Content $f) }; $mb=$t/1MB; $gb=$t/1GB; if ($gb -ge 1) { Write-Host ('You have saved a total of {0:N2} GB across all compressions!' -f $gb) -ForegroundColor Green } else { Write-Host ('You have saved a total of {0:N2} MB across all compressions!' -f $mb) -ForegroundColor Green }"
+echo.
+echo * Note: Decompressing a game does NOT subtract from your 
+echo lifetime space saved stats, as this tracks the total 
+echo theoretical space you have prevented from being wasted 
+echo on your drives over the app's lifetime.
+echo.
 pause
 goto menu
 
