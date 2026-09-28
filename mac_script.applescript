@@ -1,7 +1,7 @@
 property appVersion : "v1.4.3"
 
 on open droppedItems
-	handleFiles(droppedItems)
+	handleFiles(droppedItems, "COMPRESS")
 end open
 
 on run
@@ -9,17 +9,20 @@ on run
 	showMainMenu()
 end run
 
-on handleFiles(theFiles)
-	set formatOptions to {"CUE/ISO -> CHD (PS1/PS2 Emulators)", "ISO -> CSO (PSP/PS2 Emulators)", "ISO -> ZSO (Real Hardware)", "CSO -> ZSO (Real Hardware)", "Decompress (CHD/CSO/ZSO -> CUE/ISO)", "View Space Saved Stats"}
-	set formatChoice to choose from list formatOptions with prompt "QUICK COMPRESSION GUIDE:
+on handleFiles(theFiles, modeStr)
+	set formatOptions to {"CUE/ISO -> CHD (PS1/PS2 Emulators)", "ISO -> CSO (PSP/PS2 Emulators)", "ISO -> ZSO (Real Hardware)", "CSO -> ZSO (Real Hardware)"}
+	set formatChoice to ""
+	if modeStr is "COMPRESS" then
+		set formatChoice to choose from list formatOptions with prompt "QUICK COMPRESSION GUIDE:
 • PS1 Games (.CUE) -> ONLY use CHD!
 • PS2 Games (.ISO) -> CHD (Emulators) or ZSO (Real Hardware)
 • PSP Games (.ISO) -> CSO (Emulators) or ZSO (Real Hardware)
 
 Choose Conversion Target:" default items {"CUE/ISO -> CHD (PS1/PS2 Emulators)"}
-	
-	if formatChoice is false then return
-	set formatChoice to item 1 of formatChoice
+		
+		if formatChoice is false then return
+		set formatChoice to item 1 of formatChoice
+	end if
 	
 	if formatChoice is "View Space Saved Stats" then
 		set statsFile to POSIX path of (path to home folder) & ".iso-compressor/stats.txt"
@@ -131,7 +134,7 @@ Choose Conversion Target:" default items {"CUE/ISO -> CHD (PS1/PS2 Emulators)"}
 end handleFiles
 
 on showMainMenu()
-	set menuOptions to {"Convert Single File...", "Convert Folder (Batch)...", "Install / Uninstall chdman (For PS1/PS2 Emulators)", "Auto-Update App", "About / Credits", "Quit"}
+	set menuOptions to {"Convert Single File...", "Convert Folder (Batch)...", "Decompress File / Folder...", "View Space Saved Stats", "Install / Uninstall chdman (For PS1/PS2 Emulators)", "Auto-Update App", "About / Credits", "Quit"}
 	set menuChoice to choose from list menuOptions with prompt "PS1, PS2 & PSP ISO Compressor " & appVersion & "
 Please select an option:" default items {"Convert Single File..."}
 	
@@ -141,7 +144,7 @@ Please select an option:" default items {"Convert Single File..."}
 	if menuChoice is "Convert Single File..." then
 		set theFiles to choose file with prompt "Select games to compress:" with multiple selections allowed
 		if theFiles is not false then
-			handleFiles(theFiles)
+			handleFiles(theFiles, "COMPRESS")
 		end if
 		showMainMenu()
 		
@@ -176,10 +179,35 @@ Please select an option:" default items {"Convert Single File..."}
 				if typesCount > 1 then
 					display alert "Batch Error" message "The folder must contain only ONE file format to convert (e.g., only .iso OR only .cso).\n\nMixed formats were found. Please separate them."
 				else
-					handleFiles(aliasList)
+					handleFiles(aliasList, "COMPRESS")
 				end if
 			end if
 		end if
+		showMainMenu()
+		
+	else if menuChoice is "Decompress File / Folder..." then
+		set theFiles to choose file with prompt "Select compressed games to decompress:" with multiple selections allowed
+		if theFiles is not false then
+			handleFiles(theFiles, "DECOMPRESS")
+		end if
+		showMainMenu()
+		
+	else if menuChoice is "View Space Saved Stats" then
+		set totalSaved to 0
+		try
+			set totalSaved to (do shell script "cat ~/.iso-compressor/stats.txt") as number
+		end try
+		
+		set displaySaved to ""
+		if totalSaved > 1073741824 then
+			set displaySaved to ((totalSaved / 1073741824.0 * 100) div 1 / 100.0 as string) & " GB"
+		else if totalSaved > 1048576 then
+			set displaySaved to ((totalSaved / 1048576.0 * 100) div 1 / 100.0 as string) & " MB"
+		else
+			set displaySaved to (totalSaved as string) & " B"
+		end if
+		
+		display dialog "LIFETIME SPACE SAVED\n\nYou have saved a total of " & displaySaved & " across all compressions!\n\n* Note: Decompressing a game does NOT subtract from your lifetime space saved stats, as this tracks the total theoretical space you have prevented from being wasted on your drives over the app's lifetime." buttons {"OK"} default button 1
 		showMainMenu()
 		
 	else if menuChoice is "Install / Uninstall chdman (For PS1/PS2 Emulators)" then
