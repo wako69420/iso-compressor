@@ -75,14 +75,16 @@ if "%choice%"=="1" (
 ) else if "%choice%"=="5" (
     goto batch_compress
 ) else if "%choice%"=="6" (
-    goto manage_chdman
+    goto decompress
 ) else if "%choice%"=="7" (
-    goto auto_update
+    goto manage_chdman
 ) else if "%choice%"=="8" (
     goto stats
-) else if "%choice%"=="12" (
+) else if "%choice%"=="9" (
+    goto auto_update
+) else if "%choice%"=="10" (
     goto about
-) else if "%choice%"=="12" (
+) else if "%choice%"=="11" (
     goto uninstall
 ) else if "%choice%"=="12" (
     exit
@@ -126,6 +128,59 @@ echo.
 echo =======================================================
 echo                   ALL DONE!
 echo =======================================================
+pause
+goto menu
+
+:decompress
+cls
+echo =======================================================
+echo               DECOMPRESS (CHD/CSO/ZSO -^> ISO/CUE)
+echo =======================================================
+echo.
+set /p filepath="Drag and drop a .CHD, .CSO, or .ZSO file here and press Enter: "
+if "%filepath%"=="" goto menu
+set "filepath=%filepath:"=%"
+
+if not exist "%filepath%" (
+    echo File does not exist.
+    pause
+    goto menu
+)
+
+set "ext=%filepath:~-4%"
+if /I not "%ext%"==".chd" if /I not "%ext%"==".cso" if /I not "%ext%"==".zso" (
+    echo Error: Only .chd, .cso, and .zso files are supported for decompression.
+    pause
+    goto menu
+)
+
+if /I "%ext%"==".cso" goto decompress_maxcso
+if /I "%ext%"==".zso" goto decompress_maxcso
+if /I "%ext%"==".chd" goto decompress_chd
+
+:decompress_maxcso
+if not exist "%ENGINE_PATH%" (
+    echo Downloading maxcso.exe for the first time. Please wait...
+    powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/maxcso.exe' -OutFile '%ENGINE_PATH%'"
+)
+echo.
+echo Decompressing...
+"%ENGINE_PATH%" --decompress "%filepath%"
+echo.
+echo Decompression complete!
+pause
+goto menu
+
+:decompress_chd
+if not exist "%LOCALAPPDATA%\iso-compressor\chdman.exe" (
+    echo Downloading chdman.exe for the first time. Please wait...
+    powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/chdman.exe' -OutFile '%LOCALAPPDATA%\iso-compressor\chdman.exe'"
+)
+echo.
+echo Decompressing CHD...
+powershell -NoProfile -Command "$f='%filepath%'; $o=$f.Substring(0, $f.Length-4)+'.cue'; $p = Start-Process -FilePath '%LOCALAPPDATA%\iso-compressor\chdman.exe' -ArgumentList 'extractcd', '-i', \"`$f\", '-o', \"`$o\" -Wait -NoNewWindow -PassThru; if ($p.ExitCode -ne 0) { Write-Host 'Not a CD (CUE). Attempting DVD (ISO) extraction...'; if (Test-Path `$o) { Remove-Item `$o }; $o2=$f.Substring(0, $f.Length-4)+'.iso'; Start-Process -FilePath '%LOCALAPPDATA%\iso-compressor\chdman.exe' -ArgumentList 'extractdvd', '-i', \"`$f\", '-o', \"`$o2\" -Wait -NoNewWindow }"
+echo.
+echo Decompression complete!
 pause
 goto menu
 
