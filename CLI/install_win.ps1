@@ -9,15 +9,29 @@ Write-Host "Downloading core engine..."
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/maxcso.exe?t=$([guid]::NewGuid().ToString())" -OutFile "$installDir\maxcso.exe"
 
 Write-Host "Downloading TUI wrapper..."
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/iso-compressor.bat?t=$([guid]::NewGuid().ToString())" -OutFile "$installDir\iso-compressor.bat"
 
-Write-Host "Adding to system PATH..."
-$envPath = [Environment]::GetEnvironmentVariable("PATH", "User")
-if ($envPath -notmatch [regex]::Escape($installDir)) {
-    [Environment]::SetEnvironmentVariable("PATH", "$envPath;$installDir", "User")
-    $env:PATH = "$env:PATH;$installDir"
+    
+$batPath = "$installDir\iso-compressor.bat"
+$tmpBat = "$installDir\iso-compressor.bat.new"
+
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/wako69420/iso-compressor/master/CLI/windows/iso-compressor.bat?t=$([guid]::NewGuid().ToString())" -OutFile $tmpBat
+
+if (Test-Path $batPath) {
+    Remove-Item "$installDir\iso-compressor.old.bat" -Force -ErrorAction SilentlyContinue
+    Rename-Item -Path $batPath -NewName "iso-compressor.old.bat" -Force -ErrorAction SilentlyContinue
 }
 
-Write-Host ""
-Write-Host "Success! You can now launch the interactive menu from any Command Prompt or PowerShell window by typing:" -ForegroundColor Green
-Write-Host "iso-compressor" -ForegroundColor Yellow
+Move-Item -Path $tmpBat -Destination $batPath -Force
+
+Write-Host "Update installed! Relaunching..." -ForegroundColor Green
+Start-Sleep -Seconds 1
+
+Start-Process "cmd.exe" -ArgumentList "/c title ISO Compressor & `"$batPath`""
+
+# Kill the parent CMD process so the old loop dies
+try {
+    $parent = (Get-CimInstance Win32_Process -Filter "ProcessId=$PID").ParentProcessId
+    if ($parent) { Stop-Process -Id $parent -Force -ErrorAction SilentlyContinue }
+} catch {}
+
+Stop-Process -Id $PID -Force
