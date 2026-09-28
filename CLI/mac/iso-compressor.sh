@@ -30,16 +30,18 @@ show_menu() {
     echo " • PS2 Games (.ISO) ---> Use CHD (Emulation) or ZSO (Real Console)"
     echo " • PSP Games (.ISO) ---> Use CSO (Emulation) or ZSO (Real Console)"
     echo "======================================================="
-    echo " [1] CUE/ISO to CHD (For PS1/PS2 Emulators)
- [2] ISO to CSO (For PSP Emulators)"
+    echo " [1] CUE/ISO to CHD (For PS1/PS2 Emulators)"
+    echo " [2] ISO to CSO (For PSP Emulators)"
     echo " [3] CSO to ZSO (For Real Hardware)"
     echo " [4] ISO to ZSO (For Real Hardware)"
     echo " [5] Batch Compress a Folder"
-    echo " [6] Install / Uninstall CHDMAN (For PS1/PS2 Emulators)
- [7] Auto-Update CLI Tool
- [8] About / License"
-    echo " [9] Uninstall CLI Tool"
-    echo " [10] Exit"
+    echo " [6] Decompress (CHD/CSO/ZSO -> CUE/ISO)"
+    echo " [7] Install / Uninstall CHDMAN (For PS1/PS2 Emulators)"
+    echo " [8] Space Saved Stats"
+    echo " [9] Auto-Update CLI Tool"
+    echo " [10] About / License"
+    echo " [11] Uninstall CLI Tool"
+    echo " [12] Exit"
     echo ""
     read -p "Type a number and press Enter: " choice
 }
@@ -220,6 +222,35 @@ while true; do
                 fi
             fi
             read -p "Press Enter to return..."
+            ;;
+8)
+            statsFile="$HOME/.iso-compressor/stats.txt"
+            totalSaved=0
+            if [ -f "$statsFile" ]; then
+                totalSaved=$(cat "$statsFile")
+            fi
+            
+            if [ "$totalSaved" -ge 1073741824 ]; then
+                displaySaved=$(awk "BEGIN {printf \"%.2f\", $totalSaved / 1073741824}")" GB"
+            elif [ "$totalSaved" -ge 1048576 ]; then
+                displaySaved=$(awk "BEGIN {printf \"%.2f\", $totalSaved / 1048576}")" MB"
+            else
+                displaySaved="${totalSaved} B"
+            fi
+            
+            clear
+            echo "=================================================="
+            echo "               LIFETIME SPACE SAVED               "
+            echo "=================================================="
+            echo ""
+            echo -e "\033[32mYou have saved a total of $displaySaved across all compressions!\033[0m"
+            echo ""
+            echo "* Note: Decompressing a game does NOT subtract from your"
+            echo "lifetime space saved stats, as this tracks the total"
+            echo "theoretical space you have prevented from being wasted"
+            echo "on your drives over the app's lifetime."
+            echo ""
+            read -p "Press Enter to return to menu..."
             ;;
         9)
             clear
