@@ -3,7 +3,6 @@
   <a href="https://github.com/wako69420/iso-compressor/actions/workflows/shellcheck.yml"><img src="https://img.shields.io/github/actions/workflow/status/wako69420/iso-compressor/shellcheck.yml?style=flat-square&label=CI" alt="CI Status"></a>
   <a href="https://github.com/wako69420/iso-compressor/releases"><img src="https://img.shields.io/github/downloads/wako69420/iso-compressor/total.svg?style=flat-square" alt="Downloads"></a>
   <a href="https://github.com/wako69420/iso-compressor/releases"><img src="https://img.shields.io/github/v/release/wako69420/iso-compressor.svg?style=flat-square" alt="Latest Release"></a>
-  <a href="https://github.com/wako69420/iso-compressor/blob/master/LICENSE"><img src="https://img.shields.io/github/license/wako69420/iso-compressor.svg?style=flat-square" alt="License"></a>
   <a href="https://github.com/wako69420/iso-compressor/commits/master"><img src="https://img.shields.io/github/last-commit/wako69420/iso-compressor?style=flat-square" alt="Last Commit"></a>
   <br>
   <img src="https://img.shields.io/static/v1?label=Supports&message=Mac,%20Win%20%E2%80%A2%20PS1,%20PS2,%20PSP&color=blue&style=flat-square" alt="Supported Platforms and Hardware">
